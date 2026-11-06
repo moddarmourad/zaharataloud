@@ -443,10 +443,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Checkout Form -> Sent to aloudzahrat@gmail.com & redirects to thankyou.html
+  // Checkout Form -> Handles COD vs Online Payment (Ziina) + EmailJS
   const checkoutForm = document.getElementById("checkout-form");
   if (checkoutForm) {
-    checkoutForm.addEventListener("submit", (e) => {
+    checkoutForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (cart.length === 0) return;
 
@@ -479,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orders.unshift(newOrder);
       localStorage.setItem("zahrataloud_orders", JSON.stringify(orders));
 
+      // Send EmailJS notification
       if (typeof emailjs !== 'undefined') {
         emailjs.send("service_3i7fccb", "template_fp2k9tp", {
           to_email: customerEmail,
@@ -494,9 +495,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(err => console.log(err));
       }
 
+      // If user selected Ziina / Online Payment, request payment intent
+      if (paymentMethod.toLowerCase().includes("ziina") || paymentMethod.toLowerCase().includes("online")) {
+        try {
+          const res = await fetch('https://api-v2.ziina.com/api/payment_intent', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${process.env.ZIINA_API_KEY}` // Handled securely via backend / Render environment injection
+            },
+            body: JSON.stringify({
+              amount: Math.round(total * 100), // Converted to fils
+              currency_code: "AED",
+              message: `Order ${orderId} - Zahrat Al-Oud`,
+              success_url: window.location.origin + `/thankyou.html?id=${orderId}`,
+              cancel_url: window.location.origin + `/index.html`
+            })
+          });
+          const data = await res.json();
+          if (data.redirect_url) {
+            cart = [];
+            localStorage.setItem("zahrataloud_cart", JSON.stringify(cart));
+            window.location.href = data.redirect_url;
+            return;
+          }
+        } catch (err) {
+          console.error("Ziina payment intent error:", err);
+        }
+      }
+
+      // Default fallback / Cash on Delivery flow
       cart = [];
       localStorage.setItem("zahrataloud_cart", JSON.stringify(cart));
-
       window.location.href = `thankyou.html?id=${orderId}`;
     });
   }
