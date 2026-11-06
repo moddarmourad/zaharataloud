@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zahrat Al Oud — Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --linen: #f3eee4;
+      --paper: #faf7f0;
+      --ink: #28251f;
+      --muted: #777064;
+      --gold: #a58a5b;
+      --line: rgba(54, 49, 39, .17);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--linen);
+      color: var(--ink);
+      font-family: var(--sans);
+      padding: 40px 20px;
+    }
+    .admin-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 40px;
+    }
+    h1, h2 { font-family: var(--serif); color: var(--ink); }
+    .auth-box {
+      max-width: 400px;
+      margin: 100px auto;
+      background: var(--paper);
+      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      font-family: inherit;
+    }
+    .btn {
+      background: var(--ink);
+      color: var(--linen);
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border-radius: 4px;
+    }
+    .btn:hover { background: var(--gold); }
+    .tabs {
+      display: flex;
+      gap: 15px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 8px 16px;
+    }
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom: 2px solid var(--gold);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 12px;
+      text-align: left;
+    }
+    th { background: var(--linen); }
+    .status-select {
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Gate -->
+  <div id="login-screen" class="auth-box">
+    <h2>Admin Access</h2>
+    <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">Enter your admin password to manage Zahrat Al Oud.</p>
+    <div class="form-group">
+      <input type="password" id="admin-pass" placeholder="Password">
+    </div>
+    <button class="btn" onclick="loginAdmin()">Login</button>
+    <p id="login-error" style="color: red; font-size: 13px; margin-top: 10px;" hidden>Incorrect password. Try "admin123".</p>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div id="admin-dashboard" class="admin-container" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+      <h1>Zahrat Al Oud Dashboard</h1>
+      <a href="index.html" class="btn" style="text-decoration: none;">View Website</a>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('orders')">📦 Orders Tracking</button>
+      <button class="tab-btn" onclick="switchTab('products')">🛍️ Products & Pricing</button>
+      <button class="tab-btn" onclick="switchTab('content')">✨ Hero & Banners</button>
+      <button class="tab-btn" onclick="switchTab('seo')">🔍 SEO Settings</button>
+    </div>
+
+    <!-- TAB 1: ORDERS TRACKING -->
+    <div id="tab-orders" class="tab-content active">
+      <h2>Customer Orders & Tracking</h2>
+      <p style="color: var(--muted);">All orders placed on the site appear here. Status updates automatically email mouradmohammed24@gmail.com.</p>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Phone / Email</th>
+            <th>Items & Total</th>
+            <th>Emirate & Address</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="orders-tbody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TAB 2: PRODUCTS -->
+    <div id="tab-products" class="tab-content">
+      <h2>Manage Products & Pricing</h2>
+      <form id="product-edit-form" onsubmit="saveProducts(event)">
+        <div id="product-fields-container">
+          <!-- Populated by JS -->
+        </div>
+        <button type="submit" class="btn">Save Products</button>
+      </form>
+    </div>
+
+    <!-- TAB 3: HERO & BANNERS -->
+    <div id="tab-content" class="tab-content">
+      <h2>Hero & Banner Content</h2>
+      <form id="content-edit-form" onsubmit="saveContent(event)">
+        <div class="form-group">
+          <label>Brand Name</label>
+          <input type="text" id="cfg-brand" value="Zahrat Al-Oud">
+        </div>
+        <div class="form-group">
+          <label>Hero Title</label>
+          <input type="text" id="cfg-herotitle" value="Some things stay with you.">
+        </div>
+        <div class="form-group">
+          <label>Hero Subtitle</label>
+          <textarea id="cfg-herosub" rows="3">Inspired by the warmth of oud and the beauty of what endures. Zahrat Al Oud is a perfume brand in the making.</textarea>
+        </div>
+        <div class="form-group">
+          <label>Hero Banner Image Filename</label>
+          <input type="text" id="cfg-heroimg" value="WhatsApp Image 2026-10-07 at 5.39.28 PM.jpeg">
+        </div>
+        <div class="form-group">
+          <label>Promo Banner Image Filename</label>
+          <input type="text" id="cfg-promoimg" value="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg">
+        </div>
+        <button type="submit" class="btn">Save Content & Banners</button>
+      </form>
+    </div>
+
+    <!-- TAB 4: SEO -->
+    <div id="tab-seo" class="tab-content">
+      <h2>SEO & Meta Settings</h2>
+      <form id="seo-edit-form" onsubmit="saveSEO(event)">
+        <div class="form-group">
+          <label>Meta Page Title</label>
+          <input type="text" id="cfg-seotitle" value="Zahrat Al Oud — The art of staying">
+        </div>
+        <div class="form-group">
+          <label>Meta Description</label>
+          <textarea id="cfg-seodesc" rows="3">Zahrat Al Oud is a perfume brand inspired by the warmth of oud and the beauty of lasting memories.</textarea>
+        </div>
+        <button type="submit" class="btn">Save SEO Settings</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

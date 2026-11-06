@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3eee4">
+  <meta name="description" id="meta-desc" content="Zahrat Al Oud is a perfume brand inspired by the warmth of oud and the beauty of lasting memories.">
+  <title id="meta-title">Zahrat Al Oud — The art of staying</title>
+  <link rel="canonical" href="https://www.zahrataloud.ae/">
+  <meta property="og:url" content="https://www.zahrataloud.ae/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --linen: #f3eee4;
+      --paper: #faf7f0;
+      --ink: #28251f;
+      --muted: #777064;
+      --gold: #a58a5b;
+      --line: rgba(54, 49, 39, .17);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      direction: ltr;
+      background: var(--linen);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--line);
+      background: var(--linen);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 24px;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: .05em;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .cart-btn {
+      background: none;
+      border: 1px solid var(--ink);
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cart-btn:hover {
+      background: var(--ink);
+      color: var(--linen);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 40px;
+    }
+    .hero-content h1 {
+      font-family: var(--serif);
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .hero-content h1 span {
+      font-style: italic;
+    }
+    .hero-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 450px;
+    }
+    .hero-art {
+      width: 100%;
+      height: 520px;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      padding: 10px;
+    }
+    
+    /* Perfectly Responsive Promo Banner for Mobile & Desktop */
+    .promo-banner-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .promo-banner-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+    .promo-banner-container img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .shop-section {
+      padding: 80px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .shop-title {
+      font-family: var(--serif);
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    .product-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+    .product-image-box {
+      background: var(--paper);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    .product-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .product-title-button {
+      font-family: var(--serif);
+      font-size: 24px;
+      margin: 0;
+      color: var(--ink);
+    }
+    .product-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .add-to-cart {
+      background: var(--ink);
+      color: var(--linen);
+      border: none;
+      padding: 12px;
+      width: 100%;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background 0.2s;
+      margin-top: 15px;
+    }
+    .add-to-cart:hover { background: var(--gold); }
+
+    /* Product Detail View */
+    #product-detail-view {
+      display: none;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 70vh;
+    }
+    .back-to-shop {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: 30px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+    .back-to-shop:hover { color: var(--ink); }
+    .detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 50px;
+      align-items: center;
+    }
+    .detail-image {
+      width: 100%;
+      height: 500px;
+      background: var(--paper);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .detail-image img { width: 100%; height: 100%; object-fit: contain; }
+    .detail-info h2 { font-family: var(--serif); font-size: 42px; margin: 0 0 10px 0; }
+    .detail-price { font-size: 20px; font-weight: 600; color: var(--gold); margin-bottom: 20px; }
+    .detail-inspiration { font-style: italic; color: var(--muted); font-size: 16px; margin-bottom: 20px; }
+    .detail-description { font-size: 15px; line-height: 1.6; color: var(--ink); margin-bottom: 20px; }
+    .detail-notes { font-size: 14px; color: var(--muted); margin-bottom: 30px; border-top: 1px solid var(--line); padding-top: 15px; }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-title { font-family: var(--serif); font-size: 32px; margin-bottom: 15px; text-align: center; }
+    .contact-subtitle { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 40px; }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+    .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; background: #fff; width: 100%; }
+    .contact-submit { background: var(--ink); color: var(--linen); border: none; padding: 14px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: background 0.2s; }
+    .contact-submit:hover { background: var(--gold); }
+
+    /* Footer */
+    footer {
+      padding: 60px 40px;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .footer-brand h3 { font-family: var(--serif); font-size: 20px; margin: 0 0 8px 0; }
+    .footer-brand p { color: var(--muted); font-size: 14px; margin: 0; }
+    .footer-socials { display: flex; gap: 24px; }
+    .footer-socials a { text-decoration: none; color: var(--ink); font-size: 14px; text-transform: uppercase; letter-spacing: .08em; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--gold); }
+
+    /* Cart Drawer */
+    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; }
+    .cart-overlay.open { opacity: 1; pointer-events: auto; }
+    .cart-drawer { position: fixed; top: 0; right: -450px; width: 450px; max-width: 100%; height: 100vh; background: var(--paper); box-shadow: -5px 0 25px rgba(0,0,0,0.1); z-index: 1000; display: flex; flex-direction: column; transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .cart-drawer.open { right: 0; }
+    .cart-header { padding: 24px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .cart-header h2 { font-family: var(--serif); margin: 0; font-size: 22px; }
+    .close-cart { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--ink); }
+    .cart-body { padding: 24px; flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 160px; }
+    .cart-empty { text-align: center; color: var(--muted); margin-top: 40px; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .cart-item-product { display: flex; gap: 15px; align-items: center; }
+    .cart-item-image { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); }
+    .cart-item-name { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+    .quantity-control { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; }
+    .quantity-control button { background: none; border: none; cursor: pointer; font-size: 16px; font-weight: bold; }
+    .cart-footer { padding: 24px; border-top: 1px solid var(--line); background: #fff; }
+    .cart-summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px; }
+    .cart-summary-row.total { font-weight: bold; font-size: 18px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .checkout-btn { background: var(--ink); color: var(--linen); border: none; width: 100%; padding: 14px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 4px; margin-top: 15px; }
+    .checkout-btn:hover { background: var(--gold); }
+    .cart-drawer.checkout-mode #cart-items, .cart-drawer.checkout-mode .cart-summary-row, .cart-drawer.checkout-mode #cart-continue { display: none; }
+    #checkout-form { display: none; flex-direction: column; gap: 15px; padding-bottom: 60px; }
+    .cart-drawer.checkout-mode #checkout-form { display: flex; }
+    .back-to-bag { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; text-align: left; padding: 0; margin-bottom: 15px; text-decoration: underline; font-family: inherit; }
+
+    /* Admin Modal */
+    #admin-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .admin-card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; width: 900px; max-width: 100%; max-height: 90vh; overflow-y: auto; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .admin-close { background: none; border: none; font-size: 24px; cursor: pointer; float: right; }
+    .admin-tabs { display: flex; gap: 10px; border-bottom: 1px solid var(--line); margin-bottom: 20px; padding-bottom: 10px; flex-wrap: wrap; }
+    .admin-tab-btn { background: none; border: none; font-weight: 600; cursor: pointer; color: var(--muted); padding: 8px 12px; font-size: 14px; }
+    .admin-tab-btn.active { color: var(--ink); border-bottom: 2px solid var(--gold); }
+    .admin-tab-content { display: none; }
+    .admin-tab-content.active { display: block; }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; flex-direction: column; gap: 15px; }
+      nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .hero { grid-template-columns: 1fr; padding: 40px 20px; min-height: auto; text-align: center; }
+      .hero-content h1 { font-size: 36px; }
+      .hero-art { height: 380px !important; }
+      .promo-banner-container { max-width: 100% !important; margin: 0 0 30px 0 !important; }
+      .shop-section { padding: 40px 20px; }
+      .product-grid { grid-template-columns: 1fr; gap: 30px; }
+      .product-image-box { height: 380px !important; }
+      .detail-container { grid-template-columns: 1fr; padding: 20px; gap: 30px; }
+      .cart-drawer { width: 100% !important; right: -100% !important; }
+      .cart-drawer.open { right: 0 !important; }
+      .cart-body { padding: 20px 15px 180px 15px !important; }
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() { emailjs.init("s4LxcOG1Oc3PTj8d5"); })();
+  </script>
+</head>
+<body>
+
+  <header>
+    <a class="brand-name" onclick="showShopView()" id="nav-brand-title">Zahrat Al-Oud</a>
+    <nav>
+      <a onclick="showShopView()">Shop</a>
+      <a href="#contact">Contact</a>
+      <button id="openCartBtn" class="cart-btn">Bag <span id="navCartCount">(0)</span></button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero-section" class="hero">
+    <div class="hero-content">
+      <h1 id="hero-title">Some things stay <span>with you.</span></h1>
+      <p id="hero-subtitle">Inspired by the warmth of oud and the beauty of what endures. Zahrat Al Oud is a perfume brand in the making.</p>
+    </div>
+    <div class="hero-art" id="hero-art-container">
+      <!-- Populated dynamically -->
+    </div>
+  </section>
+
+  <!-- Main Shop Grid View -->
+  <main id="shop-main" class="shop-section">
+    <!-- Promo Banner with ID for direct social media linking -->
+    <div id="promo-section" class="promo-banner-container" onclick="addBundleToCart()" title="Click to get the Special Offer: 3 Perfumes for AED 330">
+      <img id="promo-banner-img" src="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg" alt="Special Offer: 3 Perfumes for AED 330">
+    </div>
+
+    <h2 class="shop-title" id="shop-title-text">The Collection</h2>
+    
+    <div class="product-grid" id="product-list">
+      <!-- Populated dynamically -->
+    </div>
+  </main>
+
+  <!-- Product Detail View -->
+  <div id="product-detail-view">
+    <button type="button" class="back-to-shop" onclick="showShopView()">&larr; Back to Collection</button>
+    <div class="detail-container">
+      <div class="detail-image">
+        <img id="detail-img" src="" alt="Product Detail">
+      </div>
+      <div class="detail-info">
+        <h2 id="detail-title"></h2>
+        <div class="detail-price" id="detail-price-display">AED 150.00</div>
+        <p id="detail-inspiration" class="detail-inspiration"></p>
+        <p id="detail-description" class="detail-description"></p>
+        <div id="detail-notes" class="detail-notes"></div>
+        <button type="button" class="add-to-cart" id="detail-add-btn">Add to Bag</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2 class="contact-title">Get in Touch</h2>
+    <p class="contact-subtitle">Have a question or custom inquiry? Send us a message.</p>
+    <form class="contact-form" id="contact-inquiry-form">
+      <div class="form-group">
+        <label for="contact-name">Your Name</label>
+        <input type="text" id="contact-name" required>
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email Address</label>
+        <input type="email" id="contact-email" required>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">
+      <h3 id="footer-brand-title">Zahrat Al-Oud</h3>
+      <p id="footer-tagline">A fragrance that tells your story.</p>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/zahrataloud/" target="_blank">Instagram</a>
+      <a href="https://wa.me/971554126032" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h2>Your Bag</h2>
+      <button id="closeCartBtn" class="close-cart">&times;</button>
+    </div>
+    <div class="cart-body">
+      <div id="cart-items"></div>
+      <form id="checkout-form">
+        <button type="button" id="back-to-bag" class="back-to-bag">&larr; Back to your bag</button>
+        <h3>Delivery details</h3>
+        <div class="form-group"><label>Full Name</label><input type="text" id="order-name" required></div>
+        <div class="form-group"><label>Mobile Number</label><input type="tel" id="order-phone" required></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="order-email" required></div>
+        <div class="form-group">
+          <label>Emirate</label>
+          <select id="order-emirate" required>
+            <option value="">Select emirate</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Sharjah">Sharjah</option>
+            <option value="Abu Dhabi">Abu Dhabi</option>
+            <option value="Ajman">Ajman</option>
+            <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+            <option value="Fujairah">Fujairah</option>
+            <option value="Umm Al Quwain">Umm Al Quwain</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Delivery Address</label><textarea id="order-address" rows="3" required></textarea></div>
+        <div class="form-group">
+          <label>Payment Method</label>
+          <div style="display: flex; gap: 20px; margin-top: 5px;">
+            <label style="font-size: 14px; text-transform: none; color: var(--ink);"><input type="radio" name="payment" value="Cash on delivery" checked> Cash on delivery</label>
+            <label style="font-size: 14px; text-transform: none; color: var(--ink);"><input type="radio" name="payment" value="Card on delivery"> Card on delivery</label>
+          </div>
+        </div>
+        <button type="submit" class="checkout-btn">Complete Order</button>
+      </form>
+    </div>
+    <div class="cart-footer" id="cart-continue">
+      <div class="cart-summary-row"><span>Subtotal</span><span id="cart-subtotal">AED 0.00</span></div>
+      <div class="cart-summary-row total"><span>Total</span><span id="cart-total">AED 0.00</span></div>
+      <button type="button" id="continue-checkout" class="checkout-btn">Continue to Delivery Details</button>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div id="admin-modal">
+    <div class="admin-card">
+      <button class="admin-close" onclick="closeAdminModal()">&times;</button>
+      <div id="admin-login-view">
+        <h2>Admin Access</h2>
+        <p style="color: var(--muted); font-size: 14px;">Enter password to unlock full website control.</p>
+        <div class="form-group"><input type="password" id="admin-password-input" placeholder="Password"></div>
+        <button class="add-to-cart" onclick="verifyAdminPassword()">Login</button>
+        <p id="admin-login-err" style="color: red; font-size: 13px; display: none; margin-top: 10px;">Incorrect password.</p>
+      </div>
+
+      <div id="admin-panel-view" style="display: none;">
+        <h2>Master Admin Dashboard</h2>
+        <div class="admin-tabs">
+          <button class="admin-tab-btn active" onclick="switchAdminTab('orders')">📦 Orders Tracking</button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('products')">🛍️ Products & Prices</button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('content')">✨ Hero & Banners</button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('seo')">🔍 SEO Settings</button>
+        </div>
+
+        <div id="admin-tab-orders" class="admin-tab-content active">
+          <h3>Customer Orders Tracker</h3>
+          <div id="admin-orders-container" style="overflow-x: auto; margin-top: 15px;"></div>
+        </div>
+
+        <div id="admin-tab-products" class="admin-tab-content">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h3>Manage Products & Pricing</h3>
+            <button type="button" class="checkout-btn" style="width: auto; padding: 8px 16px; margin:0;" onclick="addNewProductForm()">+ Add New Product</button>
+          </div>
+          <form id="admin-products-form" onsubmit="saveAdminProducts(event)">
+            <div id="admin-products-fields" style="margin-top: 15px;"></div>
+            <button type="submit" class="checkout-btn" style="margin-top: 20px;">Save All Products</button>
+          </form>
+        </div>
+
+        <div id="admin-tab-content" class="admin-tab-content">
+          <h3>Hero Content & Banner Media</h3>
+          <form onsubmit="saveAdminContent(event)">
+            <div class="form-group"><label>Brand Name</label><input type="text" id="adm-brand"></div>
+            <div class="form-group"><label>Hero Title</label><input type="text" id="adm-herotitle"></div>
+            <div class="form-group"><label>Hero Subtitle</label><textarea id="adm-herosub" rows="3"></textarea></div>
+            <div class="form-group"><label>Hero Media Filename</label><input type="text" id="adm-heroimg"></div>
+            <div class="form-group"><label>Promo Banner Image Filename</label><input type="text" id="adm-promoimg"></div>
+            <button type="submit" class="checkout-btn" style="margin-top: 20px;">Save Content & Banners</button>
+          </form>
+        </div>
+
+        <div id="admin-tab-seo" class="admin-tab-content">
+          <h3>SEO & Meta Tags</h3>
+          <form onsubmit="saveAdminSEO(event)">
+            <div class="form-group"><label>Meta Page Title</label><input type="text" id="adm-seotitle"></div>
+            <div class="form-group"><label>Meta Description</label><textarea id="adm-seodesc" rows="3"></textarea></div>
+            <button type="submit" class="checkout-btn" style="margin-top: 20px;">Save SEO Settings</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
