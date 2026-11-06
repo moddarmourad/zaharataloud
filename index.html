@@ -497,9 +497,15 @@
         <div class="form-group"><label>Delivery Address</label><textarea id="order-address" rows="3" required></textarea></div>
         <div class="form-group">
           <label>Payment Method</label>
-          <div style="display: flex; gap: 20px; margin-top: 5px;">
-            <label style="font-size: 14px; text-transform: none; color: var(--ink); cursor: pointer;"><input type="radio" name="payment" value="Cash on delivery" checked> Cash on delivery</label>
-            <label style="font-size: 14px; text-transform: none; color: var(--ink); cursor: pointer;"><input type="radio" name="payment" value="Online Payment"> Online Payment (Apple Pay / Google Pay)</label>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 14px; text-transform: none; color: var(--ink); cursor: pointer; line-height: 1.4;">
+              <input type="radio" name="payment" value="Cash on delivery" checked style="margin-top: 2px; flex-shrink: 0;"> 
+              <span>Cash on delivery</span>
+            </label>
+            <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 14px; text-transform: none; color: var(--ink); cursor: pointer; line-height: 1.4;">
+              <input type="radio" name="payment" value="Online Payment" style="margin-top: 2px; flex-shrink: 0;"> 
+              <span>Online Payment (Apple Pay / Google Pay)</span>
+            </label>
           </div>
         </div>
         <button type="submit" class="checkout-btn">Complete Order</button>
