@@ -495,33 +495,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(err => console.log(err));
       }
 
-      // If user selected Online Payment (Google Pay / Apple Pay / Card via Ziina)
+      // If user selected Online Payment, route directly to Ziina payment link
       if (paymentMethod.toLowerCase().includes("online") || paymentMethod.toLowerCase().includes("ziina")) {
-        try {
-          const res = await fetch('https://api-v2.ziina.com/api/payment_intent', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${window.ZIINA_API_KEY || ''}` 
-            },
-            body: JSON.stringify({
-              amount: Math.round(total * 100), // Converted to fils
-              currency_code: "AED",
-              message: `Order ${orderId} - Zahrat Al-Oud`,
-              success_url: window.location.origin + `/thankyou.html?id=${orderId}`,
-              cancel_url: window.location.origin + `/index.html`
-            })
-          });
-          const data = await res.json();
-          if (data.redirect_url) {
-            cart = [];
-            localStorage.setItem("zahrataloud_cart", JSON.stringify(cart));
-            window.location.href = data.redirect_url;
-            return;
-          }
-        } catch (err) {
-          console.error("Ziina payment intent error:", err);
-        }
+        cart = [];
+        localStorage.setItem("zahrataloud_cart", JSON.stringify(cart));
+        // Redirects directly to Ziina secure payment checkout page for your store
+        window.location.href = `https://pay.ziina.com/zahrataloud?amount=${total}&reference=${orderId}`;
+        return;
       }
 
       // Default fallback / Cash on Delivery flow
