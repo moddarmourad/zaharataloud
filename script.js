@@ -495,14 +495,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(err => console.log(err));
       }
 
-      // If user selected Ziina / Online Payment, request payment intent
-      if (paymentMethod.toLowerCase().includes("ziina") || paymentMethod.toLowerCase().includes("online")) {
+      // If user selected Online Payment (Google Pay / Apple Pay / Card via Ziina)
+      if (paymentMethod.toLowerCase().includes("online") || paymentMethod.toLowerCase().includes("ziina")) {
         try {
           const res = await fetch('https://api-v2.ziina.com/api/payment_intent', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${process.env.ZIINA_API_KEY}` // Handled securely via backend / Render environment injection
+              'Authorization': `Bearer ${window.ZIINA_API_KEY || ''}` 
             },
             body: JSON.stringify({
               amount: Math.round(total * 100), // Converted to fils
