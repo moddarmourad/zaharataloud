@@ -499,8 +499,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (paymentMethod.toLowerCase().includes("online") || paymentMethod.toLowerCase().includes("ziina")) {
         cart = [];
         localStorage.setItem("zahrataloud_cart", JSON.stringify(cart));
-        // Redirects directly to Ziina secure payment checkout page for your store
-        window.location.href = `https://pay.ziina.com/zahrataloud?amount=${total}&reference=${orderId}`;
+        // Redirects directly to your active Ziina checkout page using Abdala114 handle
+        window.location.href = `https://pay.ziina.com/Abdala114?amount=${total}&reference=${orderId}`;
         return;
       }
 
