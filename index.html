@@ -1,662 +1,1058 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ffffff" />
   <title>Zahrat Al Oud — The art of staying</title>
-  <meta
-    name="description"
-    content="Zahrat Al Oud is a perfume brand inspired by the warmth of oud and the beauty of lasting memories."
-  />
-  <meta property="og:title" content="Zahrat Al Oud — The art of staying" />
-  <meta
-    property="og:description"
-    content="Zahrat Al Oud is a perfume brand inspired by the warmth of oud and the beauty of lasting memories."
-  />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.zahrataloud.ae/" />
+  <meta name="description" content="Inspired by the warmth of oud and the beauty of what endures. Explore Zahrat Al-Oud signature Extrait de Parfum fragrances: Drake, Vanguard, Eclipsed, and the AED 330 Trio Offer." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
       --bg: #ffffff;
       --ink: #1c1915;
       --muted: #5e584f;
-      --soft-muted: #6e685f;
+      --subtle: #6e685f;
       --gold: #9a7b48;
       --gold-dark: #7a5e32;
-      --line: #eaeaea;
-      --line-strong: #dcd8cf;
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "DM Sans", system-ui, -apple-system, sans-serif;
+      --border: #eaeaea;
+      --border-strong: #dcd8cf;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-family: var(--font-sans);
+      background-color: var(--bg);
       color: var(--ink);
-      font-family: var(--sans);
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    .tabular { font-variant-numeric: tabular-nums; }
-    .hidden { display: none !important; }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
 
     /* Announcement Bar */
-    .announcement {
+    .announcement-bar {
+      width: 100%;
       background: var(--ink);
       color: #ffffff;
-      height: 36px;
-      padding: 0 40px;
+      min-height: 36px;
+      padding: 6px 40px 6px 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.03em;
+      text-align: center;
     }
-    .announcement p {
-      margin: 0;
-      white-space: nowrap;
+
+    .announcement-bar p {
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
     }
-    .announcement .dot { color: var(--gold); margin: 0 8px; }
+
+    .announcement-dot {
+      color: var(--gold);
+      margin: 0 6px;
+    }
+
     .announcement-close {
       position: absolute;
-      right: 12px;
-      background: none;
-      border: none;
-      color: #b8b2a8;
-      font-size: 18px;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: 0;
+      color: #a8a399;
       cursor: pointer;
-      padding: 4px 8px;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
     }
-    .announcement-close:hover { color: #ffffff; }
 
-    /* Header */
-    header {
+    .announcement-close:hover {
+      color: #ffffff;
+    }
+
+    /* Sticky TopBar */
+    .topbar {
       position: sticky;
       top: 0;
       z-index: 40;
+      width: 100%;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
     }
-    .header-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-      height: 64px;
+
+    .topbar-inner {
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 12px;
+      min-width: 0;
     }
-    .brand-name {
-      font-family: var(--serif);
-      font-size: 22px;
+
+    @media (min-width: 768px) {
+      .topbar-inner {
+        height: 64px;
+        gap: 32px;
+      }
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-display);
+      font-size: 18px;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      color: var(--ink);
-      text-decoration: none;
+      letter-spacing: 0.02em;
       white-space: nowrap;
       flex-shrink: 0;
     }
+
+    @media (min-width: 768px) {
+      .brand-wordmark {
+        font-size: 22px;
+      }
+    }
+
     .nav-links {
-      display: flex;
+      display: none;
       align-items: center;
       gap: 28px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      white-space: nowrap;
-      padding: 8px 0;
-      transition: color 0.15s;
+      color: var(--muted);
     }
+
+    .nav-links a {
+      padding: 8px 0;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
     .nav-links a:hover {
       color: var(--ink);
       text-decoration: underline;
-      text-underline-offset: 5px;
+      text-underline-offset: 4px;
       text-decoration-color: var(--gold);
     }
-    .header-actions {
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .topbar-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
     }
+
     .bag-btn {
       min-height: 40px;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border: 1px solid var(--ink);
       background: #ffffff;
       color: var(--ink);
-      font-family: inherit;
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      cursor: pointer;
       white-space: nowrap;
-      transition: all 0.15s;
-    }
-    .bag-btn:hover { background: var(--ink); color: #ffffff; }
-    .menu-toggle {
-      display: none;
-      min-width: 44px;
-      min-height: 44px;
-      background: none;
-      border: none;
-      font-size: 22px;
-      color: var(--ink);
       cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
-    .mobile-nav {
+
+    .bag-btn:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .menu-toggle {
+      min-height: 42px;
+      min-width: 42px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-menu {
       display: none;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid var(--border);
       background: #ffffff;
-      padding: 12px 20px;
+      padding: 10px 16px 14px;
     }
-    .mobile-nav.open { display: block; }
-    .mobile-nav a {
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
       display: block;
       padding: 10px 0;
-      text-decoration: none;
-      color: var(--ink);
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
 
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 22px;
+      background: var(--ink);
+      color: #ffffff;
+      border: 1px solid var(--ink);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
     }
 
-    /* Hero */
-    .hero-section {
-      background: #ffffff;
-      border-bottom: 1px solid var(--line);
-      padding: 52px 0 60px;
+    .btn-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
     }
+
+    .btn-primary.added {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      background: #ffffff;
+      color: var(--ink);
+      border: 1px solid var(--border-strong);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0 36px;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 56px 0 64px;
+      }
+    }
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1fr;
+      gap: 28px;
       align-items: stretch;
     }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
     .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 8px 0;
+      gap: 24px;
+      min-width: 0;
     }
+
     .eyebrow {
       font-size: 12px;
       font-weight: 500;
-      text-transform: uppercase;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--gold-dark);
-      margin: 0 0 18px;
     }
-    .hero-copy h1 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4.2vw, 3.8rem);
+
+    .hero-title {
+      font-family: var(--font-display);
       font-weight: 400;
+      font-size: clamp(2rem, 4.2vw, 3.75rem);
       line-height: 1.08;
       letter-spacing: -0.02em;
-      margin: 0 0 22px;
-      text-wrap: balance;
+      margin-top: 12px;
+      margin-bottom: 16px;
     }
-    .hero-copy h1 span { font-style: italic; }
-    .hero-sub {
+
+    .hero-title em {
+      font-style: italic;
+    }
+
+    .hero-desc {
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.65;
       color: var(--muted);
       max-width: 44ch;
-      margin: 0;
     }
-    .hero-ctas {
-      margin-top: 32px;
+
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
-    .btn-primary {
-      min-height: 44px;
-      padding: 12px 26px;
-      background: var(--ink);
-      color: #ffffff;
-      border: none;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .btn-primary:hover { background: var(--gold); }
-    .btn-link {
-      min-height: 44px;
-      padding: 8px 4px;
-      background: none;
-      border: none;
-      color: var(--ink);
-      font-family: inherit;
+
+    .hero-link-btn {
+      background: transparent;
+      border: 0;
+      padding: 10px 4px;
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      color: var(--ink);
       text-decoration: underline;
-      text-underline-offset: 5px;
+      text-underline-offset: 4px;
       text-decoration-color: var(--gold);
       cursor: pointer;
-      white-space: nowrap;
     }
-    .btn-link:hover { color: var(--gold-dark); }
 
-    .hero-art-wrap {
+    .hero-link-btn:hover {
+      color: var(--gold-dark);
+    }
+
+    .hero-media {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hero-art-box {
+
+    .hero-emblem-box {
       width: 100%;
-      max-width: 430px;
+      max-width: 300px;
       aspect-ratio: 1 / 1;
       background: #ffffff;
       border: 1px solid #efefef;
-      padding: 24px;
+      padding: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hero-art-box img {
+
+    @media (min-width: 640px) {
+      .hero-emblem-box {
+        max-width: 380px;
+        padding: 20px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-emblem-box {
+        max-width: 440px;
+      }
+    }
+
+    .hero-emblem-box img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
     }
 
-    /* 4-Column Pillars */
     .pillars-grid {
-      margin-top: 44px;
-      padding-top: 28px;
-      border-top: 1px solid var(--line);
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
+
+    @media (min-width: 640px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pillars-grid {
+        margin-top: 48px;
+        padding-top: 32px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+      }
+    }
+
     .pillar-head {
       display: flex;
       align-items: baseline;
-      gap: 10px;
-      margin-bottom: 6px;
+      gap: 8px;
+      margin-bottom: 4px;
     }
-    .pillar-num { font-size: 12px; font-weight: 500; color: var(--gold); }
-    .pillar-title { font-size: 14px; font-weight: 600; margin: 0; }
-    .pillar-desc { font-size: 12px; line-height: 1.6; color: var(--muted); margin: 0; padding-left: 26px; }
+
+    .pillar-num {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .pillar-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pillar-detail {
+      font-size: 12px;
+      color: var(--muted);
+      padding-left: 22px;
+      line-height: 1.5;
+    }
 
     /* Collection Section */
-    .collection-section {
+    .collection {
       background: #ffffff;
-      padding: 68px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 40px 0 56px;
+      border-bottom: 1px solid var(--border);
     }
-    .collection-header {
+
+    @media (min-width: 768px) {
+      .collection {
+        padding: 72px 0;
+      }
+    }
+
+    .section-head {
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
+      flex-direction: column;
+      gap: 18px;
       padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
     }
-    .collection-header h2 {
-      font-family: var(--serif);
-      font-size: 34px;
+
+    @media (min-width: 768px) {
+      .section-head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .section-title {
+      font-family: var(--font-display);
       font-weight: 400;
-      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      line-height: 1.15;
+      margin-top: 6px;
     }
+
     .filter-tabs {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
+      padding-bottom: 4px;
+      max-width: 100%;
     }
+
     .filter-tab {
       min-height: 38px;
       padding: 8px 14px;
       border: 1px solid #e5e5e5;
       background: #ffffff;
       color: var(--muted);
-      font-family: inherit;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      cursor: pointer;
       white-space: nowrap;
-      transition: all 0.15s;
-    }
-    .filter-tab:hover { border-color: var(--ink); color: var(--ink); }
-    .filter-tab.active {
-      background: var(--ink);
-      color: #ffffff;
-      border-color: var(--ink);
+      flex-shrink: 0;
+      cursor: pointer;
     }
 
-    /* Equal-Height Cards */
-    .product-grid {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 1fr;
-      gap: 28px;
+    .filter-tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #ffffff;
     }
+
+    /* Equal-Height Product Grid with Full-Width Aspect 3:4 Bottle Frames */
+    .product-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      grid-auto-rows: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+    }
+
     .product-card {
       height: 100%;
       background: #ffffff;
-      border: 1px solid var(--line);
-      padding: 18px;
+      border: 1px solid var(--border);
+      padding: 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, border-color 0.2s;
+      min-width: 0;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
+
+    @media (min-width: 640px) {
+      .product-card {
+        padding: 20px;
+      }
+    }
+
     .product-card:hover {
       transform: translateY(-2px);
       border-color: #cfc9be;
     }
+
     .product-img-btn {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #ffffff;
+      border: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 320px;
-      background: #ffffff;
-      border: none;
-      padding: 0;
       overflow: hidden;
       cursor: pointer;
     }
+
     .product-img-btn img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
-      transition: transform 0.3s;
+      transition: transform 0.25s ease;
     }
-    .product-card:hover .product-img-btn img { transform: scale(1.02); }
+
+    .product-card:hover .product-img-btn img {
+      transform: scale(1.02);
+    }
+
     .product-meta {
-      margin-top: 16px;
+      margin-top: 14px;
       padding-top: 14px;
       border-top: 1px solid #f0f0f0;
     }
-    .product-kicker {
+
+    .product-scent {
       font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gold-dark);
-      margin: 0 0 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin-bottom: 6px;
     }
-    .product-title-row {
+
+    .product-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 6px;
     }
-    .product-title-btn {
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: var(--serif);
-      font-size: 23px;
+
+    .product-name-btn {
+      font-family: var(--font-display);
+      font-size: 22px;
       font-weight: 400;
+      background: transparent;
+      border: 0;
       color: var(--ink);
-      cursor: pointer;
       text-align: left;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      cursor: pointer;
     }
-    .product-title-btn:hover {
+
+    .product-name-btn:hover {
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-color: var(--gold);
     }
+
     .product-price {
       font-size: 14px;
       font-weight: 600;
-      color: var(--ink);
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .product-insp {
+
+    .product-inspiration {
       font-size: 12px;
       font-style: italic;
       color: var(--muted);
-      margin: 6px 0 4px;
+      margin-bottom: 6px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .product-notes {
       font-size: 12px;
+      color: var(--subtle);
       line-height: 1.5;
-      color: var(--soft-muted);
-      margin: 0;
       min-height: 36px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
-    .card-actions {
-      margin-top: 16px;
+
+    .product-actions {
+      margin-top: 14px;
       padding-top: 14px;
       border-top: 1px solid #f0f0f0;
       display: flex;
+      align-items: center;
       gap: 10px;
     }
-    .btn-outline {
-      min-height: 42px;
-      padding: 8px 14px;
-      border: 1px solid #e0ddd6;
-      background: #ffffff;
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .btn-outline:hover { border-color: var(--ink); }
-    .btn-add {
-      flex: 1;
-      min-height: 42px;
-      padding: 8px 14px;
-      border: none;
-      background: var(--ink);
-      color: #ffffff;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .btn-add:hover, .btn-add.added { background: var(--gold); }
 
-    /* Trio Offer Banner Card */
-    .trio-card {
-      margin-top: 56px;
-      border: 1px solid var(--line);
+    .product-actions .btn-primary {
+      flex: 1;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    /* Bundle Banner Feature */
+    .bundle-box {
+      margin-top: 48px;
+      border: 1px solid var(--border);
       background: #ffffff;
-      padding: 36px;
+      padding: 16px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 44px;
+      grid-template-columns: 1fr;
+      gap: 24px;
       align-items: center;
     }
-    .trio-img-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    @media (min-width: 640px) {
+      .bundle-box {
+        padding: 28px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .bundle-box {
+        margin-top: 64px;
+        padding: 40px;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
+    .bundle-poster-btn {
+      display: block;
       width: 100%;
-      height: 440px;
       background: #ffffff;
-      border: none;
-      padding: 0;
+      border: 0;
       cursor: pointer;
+      overflow: hidden;
     }
-    .trio-img-btn img {
+
+    .bundle-poster-btn img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 540px;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
+      margin: 0 auto;
     }
-    .trio-info h3 {
-      font-family: var(--serif);
-      font-size: 32px;
+
+    .bundle-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.8vw, 2.25rem);
       font-weight: 400;
       line-height: 1.15;
-      margin: 0 0 16px;
-      text-wrap: balance;
+      margin-top: 8px;
+      margin-bottom: 14px;
     }
-    .trio-desc {
+
+    .bundle-desc {
       font-size: 14px;
-      line-height: 1.7;
       color: var(--muted);
-      margin: 0 0 20px;
+      line-height: 1.65;
       max-width: 46ch;
     }
-    .trio-breakdown {
+
+    .bundle-trio-list {
+      margin: 20px 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 22px;
+      gap: 10px;
       font-size: 12px;
     }
-    .trio-breakdown strong { display: block; margin-bottom: 2px; }
-    .trio-breakdown span { color: var(--soft-muted); }
-    .trio-cta-row {
+
+    .bundle-trio-list strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .bundle-trio-list span {
+      color: var(--subtle);
+      font-size: 11px;
+    }
+
+    .bundle-cta-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
     }
-    .strike-price {
-      font-size: 12px;
-      color: var(--soft-muted);
+
+    .compare-price {
+      font-size: 13px;
+      color: var(--subtle);
       text-decoration: line-through;
     }
 
     /* Dedicated Trio Offer Product Page */
-    .trio-page {
+    .offer-page {
+      display: none;
       background: #ffffff;
-      padding: 28px 0 72px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0 56px;
     }
-    .trio-page-bar {
+
+    .offer-page.active {
+      display: block;
+    }
+
+    .offer-topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      min-width: 0;
     }
-    .back-btn {
-      min-height: 44px;
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: inherit;
+
+    .offer-back-btn {
+      min-height: 40px;
+      padding: 6px 4px;
+      background: transparent;
+      border: 0;
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
       cursor: pointer;
     }
-    .back-btn:hover { color: var(--gold-dark); }
-    .trio-page-grid {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 44px;
-      align-items: start;
+
+    .offer-back-btn:hover {
+      color: var(--gold);
     }
-    .trio-page-img {
-      border: 1px solid var(--line);
-      padding: 20px;
-      height: 460px;
+
+    .offer-topbar-right {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .copy-link-btn {
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-strong);
       background: #ffffff;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      cursor: pointer;
     }
-    .trio-page-img img {
+
+    .copy-link-btn:hover {
+      border-color: var(--ink);
+    }
+
+    .close-x-btn {
+      min-height: 40px;
+      min-width: 40px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .close-x-btn:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .offer-hero-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .offer-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
+    .offer-poster-wrap {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      overflow: hidden;
     }
-    .trio-page-bottles {
-      margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid var(--line);
+
+    .offer-poster-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .offer-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+      margin: 10px 0 18px;
+    }
+
+    .offer-price-main {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--gold-dark);
+    }
+
+    .offer-save {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .offer-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 16px 0;
+      margin: 20px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .offer-specs dt {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      font-size: 10px;
+    }
+
+    .offer-specs dd {
+      margin-top: 4px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .offer-buy-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .offer-buy-row {
+        flex-direction: row;
+        align-items: center;
+      }
+      .offer-buy-row .btn-primary {
+        flex: 1;
+      }
+    }
+
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      align-self: flex-start;
+    }
+
+    .qty-stepper button {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .qty-stepper button:hover {
+      background: #f5f5f5;
+    }
+
+    .qty-stepper span {
+      width: 36px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .offer-included {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
     }
 
     /* Contact Section */
-    .contact-section {
+    .contact {
       background: #ffffff;
-      padding: 68px 24px;
-      border-bottom: 1px solid var(--line);
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .contact-inner { max-width: 680px; margin: 0 auto; }
-    .contact-head { text-align: center; margin-bottom: 32px; }
+
+    .contact-inner {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .contact-head {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
     .contact-head h2 {
-      font-family: var(--serif);
-      font-size: 32px;
+      font-family: var(--font-display);
+      font-size: 30px;
       font-weight: 400;
-      margin: 0 0 8px;
+      margin: 6px 0 8px;
     }
-    .contact-head p { font-size: 14px; color: var(--muted); margin: 0; }
-    .form-group { margin-bottom: 18px; }
-    .form-group label {
+
+    .contact-head p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
       display: block;
       font-size: 11px;
       font-weight: 500;
@@ -665,424 +1061,416 @@
       color: var(--muted);
       margin-bottom: 6px;
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+
+    .form-control {
       width: 100%;
       min-height: 44px;
-      padding: 10px 14px;
-      border: 1px solid var(--line-strong);
+      padding: 10px 12px;
       background: #ffffff;
+      border: 1px solid var(--border-strong);
       color: var(--ink);
-      font-family: inherit;
       font-size: 14px;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
+
+    .form-control:focus {
       outline: none;
       border-color: var(--gold);
     }
-    .contact-sent-box {
-      border: 1px solid var(--line);
-      padding: 32px;
+
+    .contact-success {
+      display: none;
+      border: 1px solid var(--border);
+      padding: 28px;
       text-align: center;
     }
-    .contact-sent-box h3 {
-      font-family: var(--serif);
-      font-size: 24px;
-      margin: 0 0 8px;
+
+    .contact-success.active {
+      display: block;
     }
 
     /* Footer */
-    footer {
+    .footer {
       background: #ffffff;
       padding: 44px 0;
     }
+
     .footer-top {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      flex-direction: column;
+      gap: 20px;
       padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
     }
-    .footer-brand h3 {
-      font-family: var(--serif);
+
+    @media (min-width: 768px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
       font-size: 20px;
       font-weight: 500;
-      margin: 0 0 6px;
+      margin-bottom: 4px;
     }
-    .footer-brand p { font-size: 14px; color: var(--muted); margin: 0; }
-    .footer-socials { display: flex; gap: 28px; }
-    .footer-socials a {
-      text-decoration: none;
-      color: var(--ink);
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
       font-size: 12px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
-    .footer-socials a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 4px; }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
     .footer-bottom {
       padding-top: 20px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px;
+      flex-direction: column;
+      gap: 8px;
       font-size: 12px;
-      color: var(--soft-muted);
+      color: var(--subtle);
+    }
+
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
     /* Product Detail Modal */
-    .modal-overlay {
+    .modal-backdrop {
+      display: none;
       position: fixed;
       inset: 0;
       z-index: 50;
       background: rgba(0, 0, 0, 0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
       padding: 16px;
       overflow-y: auto;
+      align-items: center;
+      justify-content: center;
     }
-    .modal-overlay.open { display: flex; }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
     .modal-card {
       position: relative;
       width: 100%;
-      max-width: 920px;
+      max-width: 900px;
       background: #ffffff;
-      border: 1px solid var(--line);
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      margin: auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
+
+    @media (min-width: 900px) {
+      .modal-card {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .modal-close {
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 44px;
-      height: 44px;
+      z-index: 10;
+      width: 42px;
+      height: 42px;
       background: #ffffff;
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
+      color: var(--ink);
       font-size: 20px;
       cursor: pointer;
-      color: var(--ink);
-      z-index: 2;
     }
-    .modal-close:hover { background: var(--ink); color: #ffffff; }
-    .modal-img-col {
-      padding: 24px;
-      border-right: 1px solid var(--line);
+
+    .modal-close:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .modal-media {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
     }
-    .modal-img-col img {
+
+    @media (min-width: 900px) {
+      .modal-media {
+        border-bottom: 0;
+        border-right: 1px solid var(--border);
+        padding: 32px;
+      }
+    }
+
+    .modal-media-box {
       width: 100%;
       max-width: 340px;
-      height: 390px;
-      object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
+      aspect-ratio: 3 / 4;
     }
-    .modal-info-col {
-      padding: 32px;
+
+    .modal-media-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .modal-body {
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
     }
-    .modal-info-col h2 {
-      font-family: var(--serif);
-      font-size: 32px;
-      font-weight: 400;
-      margin: 0 0 8px;
-    }
-    .modal-price {
-      font-size: 19px;
-      font-weight: 600;
-      color: var(--gold-dark);
-      margin: 0 0 14px;
-    }
-    .modal-notes {
-      padding-top: 14px;
-      margin-top: 14px;
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-    }
-    .modal-buy-row {
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      gap: 12px;
-    }
-    .qty-stepper {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--line-strong);
-      background: #ffffff;
-    }
-    .qty-stepper button {
-      width: 42px;
-      height: 42px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      color: var(--ink);
-    }
-    .qty-stepper span {
-      width: 34px;
-      text-align: center;
-      font-size: 14px;
+
+    @media (min-width: 900px) {
+      .modal-body {
+        padding: 36px;
+      }
     }
 
     /* Cart Drawer */
-    .cart-overlay {
+    .drawer-backdrop {
+      display: none;
       position: fixed;
       inset: 0;
       z-index: 60;
       background: rgba(0, 0, 0, 0.45);
-      display: none;
       justify-content: flex-end;
     }
-    .cart-overlay.open { display: flex; }
-    .cart-drawer {
+
+    .drawer-backdrop.open {
+      display: flex;
+    }
+
+    .drawer-panel {
       width: 100%;
-      max-width: 450px;
+      max-width: 440px;
       height: 100%;
       background: #ffffff;
-      border-left: 1px solid var(--line);
+      border-left: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.14);
     }
-    .cart-header {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--line);
+
+    .drawer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .cart-header h2 {
-      font-family: var(--serif);
+
+    .drawer-header h2 {
+      font-family: var(--font-display);
       font-size: 22px;
       font-weight: 400;
-      margin: 0;
     }
-    .cart-body {
+
+    .drawer-body {
       flex: 1;
       overflow-y: auto;
-      padding: 20px 24px;
+      padding: 20px;
     }
+
     .cart-item {
       display: flex;
       gap: 14px;
       align-items: center;
       padding: 14px 0;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
     }
-    .cart-item:first-child { padding-top: 0; }
-    .cart-item-thumb {
-      width: 66px;
-      height: 86px;
-      border: 1px solid var(--line);
-      background: #ffffff;
+
+    .cart-item-img {
+      width: 72px;
+      aspect-ratio: 3 / 4;
+      border: 1px solid var(--border);
       padding: 4px;
       flex-shrink: 0;
     }
-    .cart-item-thumb img {
+
+    .cart-item-img img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-    .cart-item-info { flex: 1; min-width: 0; }
-    .cart-item-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
     }
-    .cart-item-top h4 { margin: 0; font-size: 14px; font-weight: 600; }
-    .remove-btn {
-      background: none;
-      border: none;
-      color: var(--soft-muted);
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    .cart-item-bottom {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .cart-footer {
-      padding: 18px 24px;
-      border-top: 1px solid var(--line);
+
+    .drawer-footer {
+      padding: 18px 20px;
+      border-top: 1px solid var(--border);
       background: #ffffff;
     }
+
     .summary-row {
       display: flex;
       justify-content: space-between;
-      font-size: 14px;
-      margin-bottom: 8px;
+      font-size: 13px;
       color: var(--muted);
+      margin-bottom: 6px;
     }
-    .summary-row.total {
-      padding-top: 10px;
-      margin-top: 10px;
-      border-top: 1px solid var(--line);
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
       font-weight: 600;
       color: var(--ink);
+      padding-top: 10px;
+      margin-top: 8px;
+      margin-bottom: 14px;
+      border-top: 1px solid var(--border);
     }
-    .payment-grid {
+
+    .pay-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
-    .pay-choice {
+
+    .pay-option {
       min-height: 42px;
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--border-strong);
       background: #ffffff;
       color: var(--muted);
-      font-family: inherit;
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
     }
-    .pay-choice.active {
+
+    .pay-option.active {
       background: var(--ink);
-      color: #ffffff;
       border-color: var(--ink);
+      color: #ffffff;
     }
 
-    /* Toast */
     .toast {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 55;
+      bottom: 18px;
+      right: 16px;
+      left: 16px;
+      max-width: 380px;
+      margin-left: auto;
+      z-index: 70;
       background: var(--ink);
       color: #ffffff;
-      padding: 12px 18px;
-      font-size: 12px;
+      padding: 12px 16px;
       display: none;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
-    .toast.show { display: flex; }
+
+    .toast.show {
+      display: flex;
+    }
+
     .toast button {
-      background: none;
-      border: none;
+      background: transparent;
+      border: 0;
       color: #e6d4b2;
-      font-family: inherit;
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       text-decoration: underline;
       cursor: pointer;
+      white-space: nowrap;
     }
 
-    @media (max-width: 960px) {
-      .hero-grid,
-      .trio-card,
-      .trio-page-grid,
-      .modal-card { grid-template-columns: 1fr; }
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
-      .modal-img-col { border-right: none; border-bottom: 1px solid var(--line); padding: 18px; }
-      .modal-img-col img { height: 250px; }
-      .hero-art-box { max-width: 300px; }
-    }
-    @media (max-width: 640px) {
-      .container, .header-inner { padding: 0 18px; }
-      .header-inner { height: 56px; gap: 16px; }
-      .brand-name { font-size: 19px; }
-      .nav-links { display: none; }
-      .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-      .hero-section { padding: 28px 0 36px; }
-      .hero-art-box { max-width: 210px; padding: 14px; }
-      .pillars-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; padding-top: 20px; }
-      .collection-section { padding: 40px 0; }
-      .product-grid { grid-template-columns: 1fr; gap: 18px; }
-      .product-card { padding: 14px; }
-      .product-img-btn { height: 220px; }
-      .trio-card { padding: 18px; gap: 22px; margin-top: 36px; }
-      .trio-img-btn { height: 250px; }
-      .trio-page-img { height: 260px; padding: 12px; }
-      .trio-breakdown { grid-template-columns: 1fr; gap: 10px; }
-      .modal-img-col img { height: 210px; }
-      .modal-info-col { padding: 20px; }
+    .hidden {
+      display: none !important;
     }
   </style>
-<meta name="google-site-verification" content="wICjNvgcBaL72LkZBcwfPCnRt27H5tEh8qtKCxbvByE" />
-<link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
-  <!-- Slim Announcement Bar -->
-  <div id="announcement-bar" class="announcement">
+  <!-- Announcement Bar -->
+  <div id="announcementBar" class="announcement-bar">
     <p>
-      Special Offer: Any 3 Luxury Perfumes for AED 330
-      <span class="dot" aria-hidden="true">·</span>
-      UAE Delivery AED 20
+      Special Offer: 3 Luxury Perfumes for AED 330 with Free Delivery
+      <span class="announcement-dot" aria-hidden="true">·</span>
+      Other Orders AED 20 Delivery
     </p>
-    <button class="announcement-close" aria-label="Dismiss announcement" onclick="document.getElementById('announcement-bar').style.display='none'">&times;</button>
+    <button type="button" class="announcement-close" aria-label="Dismiss announcement" onclick="dismissAnnouncement()">&times;</button>
   </div>
 
   <!-- Header -->
-  <header>
-    <div class="header-inner">
-      <a href="#top" class="brand-name" onclick="navigateHome('top', event)">Zahrat Al-Oud</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="brand-wordmark" onclick="goHome(event)">Zahrat Al-Oud</a>
+
       <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="#collection" onclick="navigateHome('collection', event)">Collection</a>
-        <a href="?offer=trio" onclick="openTrioPage(event)">Trio Offer</a>
-        <a href="#contact" onclick="navigateHome('contact', event)">Contact</a>
-        <a href="#footer" onclick="navigateHome('footer', event)">Connect</a>
+        <a href="#collection" onclick="navigateToSection('collection', event)">Collection</a>
+        <a href="?offer=trio" onclick="openTrioOfferPage(event)">Trio Offer</a>
+        <a href="#contact" onclick="navigateToSection('contact', event)">Contact</a>
+        <a href="#footer" onclick="navigateToSection('footer', event)">Connect</a>
       </nav>
-      <div class="header-actions">
-        <button type="button" class="bag-btn" onclick="openCart()">
-          Bag (<span id="nav-bag-count" class="tabular">0</span>)
+
+      <div class="topbar-actions">
+        <button type="button" class="bag-btn" onclick="openCartDrawer()">
+          Bag (<span id="bagCount" class="tabular-nums">0</span>)
         </button>
-        <button type="button" class="menu-toggle" aria-label="Toggle Menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
-          &#9776;
-        </button>
+        <button type="button" class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">&#9776;</button>
       </div>
     </div>
-    <div id="mobile-nav" class="mobile-nav">
-      <a href="#collection" onclick="navigateHome('collection', event)">Collection</a>
-      <a href="?offer=trio" onclick="openTrioPage(event)">Trio Offer (AED 330)</a>
-      <a href="#contact" onclick="navigateHome('contact', event)">Contact</a>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#collection" onclick="navigateToSection('collection', event); toggleMobileMenu(false);">Collection</a>
+      <a href="?offer=trio" onclick="openTrioOfferPage(event); toggleMobileMenu(false);">Trio Offer (AED 330)</a>
+      <a href="#contact" onclick="navigateToSection('contact', event); toggleMobileMenu(false);">Contact</a>
     </div>
   </header>
 
-  <!-- Main Home View -->
-  <main id="home-view">
-    <section id="top" class="hero-section">
+  <!-- Main Storefront View -->
+  <main id="storefrontView">
+    <!-- Hero -->
+    <section id="top" class="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
             <div>
               <p class="eyebrow">Zahrat Al Oud · The Art of Staying</p>
-              <h1>Some things stay <span>with you.</span></h1>
-              <p class="hero-sub">
+              <h1 class="hero-title">Some things stay <em>with you.</em></h1>
+              <p class="hero-desc">
                 Inspired by the warmth of oud and the beauty of what endures. Zahrat Al Oud is a
                 perfume house devoted to fragrances that linger long after a moment passes.
               </p>
             </div>
-            <div class="hero-ctas">
-              <button type="button" class="btn-primary" onclick="navigateHome('collection')">Explore Collection</button>
-              <button type="button" class="btn-link" onclick="openTrioPage()">3 Perfumes for AED 330</button>
+
+            <div class="hero-cta-row">
+              <button type="button" class="btn-primary" onclick="navigateToSection('collection')">Explore Collection</button>
+              <button type="button" class="hero-link-btn" onclick="openTrioOfferPage()">3 Perfumes for AED 330 · Free Delivery</button>
             </div>
           </div>
-          <div class="hero-art-wrap">
-            <div class="hero-art-box">
+
+          <div class="hero-media">
+            <div class="hero-emblem-box">
               <img
                 src="WhatsApp Image 2026-10-07 at 5.39.28 PM.jpeg"
                 alt="Zahrat Al-Oud Emblem"
@@ -1095,34 +1483,35 @@
 
         <div class="pillars-grid">
           <div>
-            <div class="pillar-head"><span class="pillar-num tabular">01.</span><h2 class="pillar-title">Extrait de Parfum</h2></div>
-            <p class="pillar-desc">100 mL concentrated blends crafted for lasting sillage.</p>
+            <div class="pillar-head"><span class="pillar-num tabular-nums">01.</span><h2 class="pillar-title">Extrait de Parfum</h2></div>
+            <p class="pillar-detail">100 mL concentrated blends crafted for lasting sillage.</p>
           </div>
           <div>
-            <div class="pillar-head"><span class="pillar-num tabular">02.</span><h2 class="pillar-title">Signature Trio Offer</h2></div>
-            <p class="pillar-desc">All three luxury fragrances curated together for AED 330.</p>
+            <div class="pillar-head"><span class="pillar-num tabular-nums">02.</span><h2 class="pillar-title">Signature Trio Offer</h2></div>
+            <p class="pillar-detail">All three luxury fragrances for AED 330 with free UAE delivery.</p>
           </div>
           <div>
-            <div class="pillar-head"><span class="pillar-num tabular">03.</span><h2 class="pillar-title">UAE-Wide Delivery</h2></div>
-            <p class="pillar-desc">Flat AED 20 courier delivery across all seven Emirates.</p>
+            <div class="pillar-head"><span class="pillar-num tabular-nums">03.</span><h2 class="pillar-title">UAE-Wide Delivery</h2></div>
+            <p class="pillar-detail">Free delivery on the AED 330 Trio; AED 20 flat courier fee otherwise.</p>
           </div>
           <div>
-            <div class="pillar-head"><span class="pillar-num tabular">04.</span><h2 class="pillar-title">Flexible Checkout</h2></div>
-            <p class="pillar-desc">Pay by Cash on Delivery or Apple Pay &amp; Google Pay.</p>
+            <div class="pillar-head"><span class="pillar-num tabular-nums">04.</span><h2 class="pillar-title">Flexible Checkout</h2></div>
+            <p class="pillar-detail">Pay by Cash on Delivery or Apple Pay &amp; Google Pay.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Collection + Trio Offer -->
-    <section id="collection" class="collection-section">
+    <!-- Collection -->
+    <section id="collection" class="collection">
       <div class="container">
-        <div class="collection-header">
+        <div class="section-head">
           <div>
-            <p class="eyebrow" style="margin-bottom:8px;">Extrait de Parfum · 100 mL</p>
-            <h2>The Collection</h2>
+            <p class="eyebrow">Extrait de Parfum · 100 mL</p>
+            <h2 class="section-title">The Collection</h2>
           </div>
-          <div class="filter-tabs" role="tablist">
+
+          <div class="filter-tabs" role="tablist" aria-label="Filter by scent profile">
             <button type="button" class="filter-tab active" onclick="filterProducts('All', this)">All Scents</button>
             <button type="button" class="filter-tab" onclick="filterProducts('Warm Spice', this)">Warm Spice</button>
             <button type="button" class="filter-tab" onclick="filterProducts('Citrus Amber', this)">Citrus Amber</button>
@@ -1130,197 +1519,236 @@
           </div>
         </div>
 
-        <div id="product-grid" class="product-grid"></div>
+        <div id="productGrid" class="product-grid"></div>
 
-        <!-- Trio Offer Card -->
-        <div id="trio-offer" class="trio-card">
-          <button type="button" class="trio-img-btn" onclick="openTrioPage()" title="View Trio Offer Product Page">
-            <img
-              src="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg"
-              alt="Special Offer: 3 Perfumes for AED 330"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-          <div class="trio-info">
-            <p class="eyebrow" style="margin-bottom:8px;">Limited Signature Set · Save AED 120.00</p>
-            <h3>All three Extrait de Parfum editions for AED 330.</h3>
-            <p class="trio-desc">
+        <!-- Trio Offer Promo Card -->
+        <div id="trio-offer" class="bundle-box">
+          <div>
+            <button type="button" class="bundle-poster-btn" onclick="openTrioOfferPage()" title="Open Trio Offer page">
+              <img
+                src="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg"
+                alt="Special Offer: 3 Luxury Perfumes for AED 330"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+
+          <div>
+            <p class="eyebrow">Limited Signature Set · Free UAE Delivery</p>
+            <h3 class="bundle-title">All three Extrait de Parfum editions for AED 330.</h3>
+            <p class="bundle-desc">
               Experience all three signature Zahrat Al-Oud 100 mL Extrait de Parfum editions—Drake,
               Vanguard, and Eclipsed—curated at our limited bundle price of AED 330.
             </p>
-            <div class="trio-breakdown">
+
+            <div class="bundle-trio-list">
               <div><strong>Drake</strong><span>100 mL · Warm Spice</span></div>
               <div><strong>Vanguard</strong><span>100 mL · Citrus Amber</span></div>
               <div><strong>Eclipsed</strong><span>100 mL · Luminous Floral</span></div>
             </div>
-            <div class="trio-cta-row">
-              <button type="button" class="btn-outline" onclick="openTrioPage()">View Offer Details</button>
-              <button type="button" class="btn-primary" onclick="addToCart('bundle-3-luxury-perfumes-offer', 1)">
-                Add Trio — AED 330.00
-              </button>
-              <span class="strike-price tabular">AED 450.00</span>
+
+            <div class="bundle-cta-row">
+              <button type="button" class="btn-outline" onclick="openTrioOfferPage()">View Offer Details</button>
+              <button type="button" id="homeBundleAddBtn" class="btn-primary" onclick="addBundleFromHome()">Add Trio — AED 330.00</button>
+              <span class="compare-price tabular-nums">AED 450.00</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- Contact -->
+    <section id="contact" class="contact">
       <div class="contact-inner">
         <div class="contact-head">
-          <p class="eyebrow" style="margin-bottom:8px;">Direct Concierge</p>
+          <p class="eyebrow">Direct Concierge</p>
           <h2>Get in Touch</h2>
           <p>Have a question about fragrance notes, gifting, or UAE delivery? Send us a message.</p>
         </div>
-        <div id="contact-form-wrap">
-          <form id="contact-form" onsubmit="submitContact(event)">
-            <div class="form-group">
-              <label for="c-name">Your Name</label>
-              <input id="c-name" type="text" required />
-            </div>
-            <div class="form-group">
-              <label for="c-email">Email Address</label>
-              <input id="c-email" type="email" required />
-            </div>
-            <div class="form-group">
-              <label for="c-msg">Message</label>
-              <textarea id="c-msg" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-          </form>
+
+        <form id="contactForm" onsubmit="submitContactForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="contactName">Your Name</label>
+            <input id="contactName" class="form-control" type="text" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactEmail">Email Address</label>
+            <input id="contactEmail" class="form-control" type="email" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactMsg">Message</label>
+            <textarea id="contactMsg" class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+        </form>
+
+        <div id="contactSuccess" class="contact-success">
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:400;margin-bottom:8px;">Message Received</h3>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:18px;">Thank you for writing to Zahrat Al-Oud. Our team will respond shortly.</p>
+          <button type="button" class="btn-primary" onclick="resetContactForm()">Send Another Inquiry</button>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Dedicated Shareable Trio Offer Page (?offer=trio) -->
-  <section id="trio-page-view" class="trio-page hidden">
+  <!-- Dedicated Trio Offer Page (?offer=trio) -->
+  <section id="trioOfferPage" class="offer-page" aria-label="Bundle: 3 Luxury Perfumes Offer">
     <div class="container">
-      <div class="trio-page-bar">
-        <button type="button" class="back-btn" onclick="closeTrioPage()">&larr; Back to Collection</button>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <button type="button" id="copy-offer-btn" class="btn-outline" onclick="copyTrioLink()">Copy Offer Link</button>
-          <button type="button" class="modal-close" style="position:static;" aria-label="Close offer page" onclick="closeTrioPage()">&times;</button>
+      <div class="offer-topbar">
+        <button type="button" class="offer-back-btn" onclick="closeTrioOfferPage()">
+          <span aria-hidden="true">&larr;</span>
+          <span>Back</span>
+        </button>
+
+        <div class="offer-topbar-right">
+          <button type="button" id="copyOfferLinkBtn" class="copy-link-btn" onclick="copyOfferLink()">Copy Link</button>
+          <button type="button" class="close-x-btn" aria-label="Close offer page" onclick="closeTrioOfferPage()">&times;</button>
         </div>
       </div>
 
-      <div class="trio-page-grid">
-        <div class="trio-page-img">
-          <img src="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg" alt="3 Luxury Perfumes Offer" decoding="async" />
+      <div class="offer-hero-grid">
+        <div class="offer-poster-wrap">
+          <img
+            src="WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg"
+            alt="Bundle: 3 Luxury Perfumes Offer — Drake, Vanguard, Eclipsed"
+            decoding="async"
+          />
         </div>
+
         <div>
-          <p class="eyebrow" style="margin-bottom:10px;">Limited Signature Trio · 3 × 100 mL Extrait de Parfum</p>
-          <h1 style="font-family:var(--serif); font-size:clamp(1.85rem, 3vw, 2.5rem); font-weight:400; margin:0 0 12px;">
+          <p class="eyebrow">Limited Signature Trio · Free UAE Delivery</p>
+          <h1 style="font-family:var(--font-display);font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:400;line-height:1.15;margin-top:8px;">
             Bundle: 3 Luxury Perfumes Offer
           </h1>
-          <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:18px;">
-            <span class="tabular" style="font-size:24px; font-weight:600; color:var(--gold-dark);">AED 330.00</span>
-            <span class="tabular strike-price">AED 450.00</span>
-            <span style="font-size:12px; font-weight:500;">Save AED 120.00</span>
+
+          <div class="offer-price-row">
+            <span class="offer-price-main tabular-nums">AED 330.00</span>
+            <span class="compare-price tabular-nums">AED 450.00</span>
+            <span class="offer-save">Save AED 120.00</span>
           </div>
-          <p style="font-size:14px; line-height:1.7; color:var(--muted); margin:0 0 22px;">
+
+          <p style="font-size:14px;color:var(--muted);line-height:1.65;">
             Experience all three signature Zahrat Al-Oud 100 mL Extrait de Parfum editions—Drake,
             Vanguard, and Eclipsed—curated at our limited bundle price of AED 330.
           </p>
-          <div class="trio-breakdown" style="margin-bottom:24px;">
-            <div><strong>Total Volume</strong><span>300 mL (3 × 100 mL)</span></div>
-            <div><strong>Concentration</strong><span>Extrait de Parfum</span></div>
-            <div><strong>UAE Delivery</strong><span>Flat AED 20.00</span></div>
-          </div>
-          <div style="display:flex; gap:12px;">
+
+          <dl class="offer-specs">
+            <div><dt>Volume</dt><dd>3 &times; 100 mL</dd></div>
+            <div><dt>Strength</dt><dd>Extrait</dd></div>
+            <div><dt>UAE Delivery</dt><dd style="color:var(--gold-dark);">Free (AED 0)</dd></div>
+          </dl>
+
+          <div class="offer-buy-row">
             <div class="qty-stepper">
-              <button type="button" onclick="changeTrioQty(-1)">-</button>
-              <span id="trio-qty" class="tabular">1</span>
-              <button type="button" onclick="changeTrioQty(1)">+</button>
+              <button type="button" aria-label="Decrease bundle quantity" onclick="changeOfferQty(-1)">&minus;</button>
+              <span id="offerQty" class="tabular-nums">1</span>
+              <button type="button" aria-label="Increase bundle quantity" onclick="changeOfferQty(1)">+</button>
             </div>
-            <button type="button" id="trio-add-btn" class="btn-primary" style="flex:1;" onclick="addTrioFromPage()">
-              Add Trio Bundle — AED 330.00
+            <button type="button" id="offerAddBtn" class="btn-primary" onclick="addOfferBundleToCart()">
+              Add Trio Bundle · AED 330.00
             </button>
           </div>
         </div>
       </div>
 
-      <div class="trio-page-bottles">
-        <p class="eyebrow" style="margin-bottom:6px;">What Is Inside The Box</p>
-        <h2 style="font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 24px;">All Three Included Fragrances</h2>
-        <div id="trio-bottles-grid" class="product-grid"></div>
+      <div class="offer-included">
+        <p class="eyebrow">What Is Inside The Box</p>
+        <h2 class="section-title" style="margin-bottom:24px;">All Three Included Fragrances</h2>
+        <div id="offerIncludedGrid" class="product-grid"></div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="footer">
+  <footer id="footer" class="footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-brand">
-          <h3>Zahrat Al-Oud</h3>
-          <p>A fragrance that tells your story.</p>
+        <div>
+          <h3 class="footer-brand">Zahrat Al-Oud</h3>
+          <p class="footer-tagline">A fragrance that tells your story.</p>
         </div>
-        <div class="footer-socials">
+        <div class="footer-links">
           <a href="https://www.instagram.com/zahrataloud/" target="_blank" rel="noreferrer">Instagram</a>
           <a href="https://wa.me/971554126032" target="_blank" rel="noreferrer">WhatsApp</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Zahrat Al-Oud. All rights reserved.</span>
-        <span>United Arab Emirates · Extrait de Parfum</span>
+        <p>&copy; 2026 Zahrat Al-Oud. All rights reserved.</p>
+        <p>United Arab Emirates · Extrait de Parfum</p>
       </div>
     </div>
   </footer>
 
-  <!-- Product Detail Modal -->
-  <div id="detail-modal" class="modal-overlay" onclick="closeDetail()">
+  <!-- Product Modal -->
+  <div id="productModal" class="modal-backdrop" role="dialog" aria-modal="true" onclick="closeProductModal()">
     <div class="modal-card" onclick="event.stopPropagation()">
-      <button type="button" class="modal-close" aria-label="Close" onclick="closeDetail()">&times;</button>
-      <div class="modal-img-col">
-        <img id="m-img" src="" alt="" decoding="async" />
+      <button type="button" class="modal-close" aria-label="Close product details" onclick="closeProductModal()">&times;</button>
+      <div class="modal-media">
+        <div class="modal-media-box">
+          <img id="modalImg" src="" alt="" decoding="async" />
+        </div>
       </div>
-      <div class="modal-info-col">
+      <div class="modal-body">
         <div>
-          <p class="eyebrow" style="margin-bottom:8px;" id="m-meta"></p>
-          <h2 id="m-title"></h2>
-          <p class="modal-price tabular" id="m-price"></p>
-          <p style="font-style:italic; font-size:14px; color:var(--muted);" id="m-insp"></p>
-          <p style="font-size:14px; line-height:1.65;" id="m-desc"></p>
-          <div class="modal-notes">
-            <strong style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--soft-muted); display:block; margin-bottom:4px;">Fragrance Notes</strong>
-            <span id="m-notes"></span>
+          <p id="modalEyebrow" class="eyebrow"></p>
+          <h2 id="modalTitle" style="font-family:var(--font-display);font-size:30px;font-weight:400;margin-top:6px;"></h2>
+          <p id="modalPrice" class="tabular-nums" style="font-size:20px;font-weight:600;color:var(--gold-dark);margin-top:6px;"></p>
+          <p id="modalInspiration" style="font-size:13px;font-style:italic;color:var(--muted);margin-top:14px;"></p>
+          <p id="modalDesc" style="font-size:14px;line-height:1.6;margin-top:12px;"></p>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
+            <span style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--subtle);">Fragrance Notes</span>
+            <p id="modalNotes" style="font-size:13px;margin-top:4px;"></p>
+          </div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;">
+            <div>
+              <span style="display:block;text-transform:uppercase;color:var(--subtle);font-size:10px;">Scent Profile</span>
+              <strong id="modalScent"></strong>
+            </div>
+            <div>
+              <span style="display:block;text-transform:uppercase;color:var(--subtle);font-size:10px;">UAE Delivery</span>
+              <strong>AED 20 (Free w/ Trio)</strong>
+            </div>
           </div>
         </div>
-        <div class="modal-buy-row">
+
+        <div class="offer-buy-row" style="padding-top:16px;border-top:1px solid var(--border);">
           <div class="qty-stepper">
-            <button type="button" onclick="changeModalQty(-1)">-</button>
-            <span id="m-qty" class="tabular">1</span>
-            <button type="button" onclick="changeModalQty(1)">+</button>
+            <button type="button" aria-label="Decrease quantity" onclick="changeModalQty(-1)">&minus;</button>
+            <span id="modalQty" class="tabular-nums">1</span>
+            <button type="button" aria-label="Increase quantity" onclick="changeModalQty(1)">+</button>
           </div>
-          <button type="button" id="m-add-btn" class="btn-primary" style="flex:1;">Add to Bag</button>
+          <button type="button" id="modalAddBtn" class="btn-primary" onclick="addModalProductToCart()">
+            Add to Bag · AED 150.00
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Cart & Checkout Drawer -->
-  <div id="cart-overlay" class="cart-overlay" onclick="closeCart()">
-    <div class="cart-drawer" onclick="event.stopPropagation()">
-      <div class="cart-header">
-        <h2 id="cart-drawer-title">Your Bag (0)</h2>
-        <button type="button" class="modal-close" style="position:static; border:none;" aria-label="Close bag" onclick="closeCart()">&times;</button>
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="drawer-backdrop" role="dialog" aria-modal="true" aria-label="Your Bag" onclick="closeCartDrawer()">
+    <div class="drawer-panel" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <h2 id="drawerTitle">Your Bag (0)</h2>
+        <button type="button" class="close-x-btn" aria-label="Close bag" onclick="closeCartDrawer()">&times;</button>
       </div>
-      <div id="cart-body" class="cart-body"></div>
-      <div id="cart-footer" class="cart-footer"></div>
+
+      <div id="drawerBody" class="drawer-body"></div>
+      <div id="drawerFooter" class="drawer-footer hidden"></div>
     </div>
   </div>
 
   <!-- Toast -->
-  <div id="toast" class="toast" role="status">
-    <span id="toast-msg"></span>
-    <button type="button" onclick="hideToast(); openCart();">View Bag</button>
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span id="toastText"></span>
+    <button type="button" onclick="hideToast(); openCartDrawer();">View Bag</button>
   </div>
 
   <script>
     const DELIVERY_FEE = 20;
+    const CART_KEY = 'zahrataloud_cart_v1';
+
     const PRODUCTS = [
       {
         id: 'drake',
@@ -1328,11 +1756,11 @@
         price: 150,
         volume: '100 mL',
         concentration: 'Extrait de Parfum',
-        scentFamily: 'Warm Spice',
         image: 'IMG-20261007-WA0052.jpg',
         inspiration: 'Inspired by Ultra Male · Jean Paul Gaultier',
         description: 'A captivating, bold fragrance that leaves an unforgettable signature of warmth and spice.',
-        notes: 'Bergamot · Lavender · Pear · Cinnamon · Vanilla'
+        notes: 'Bergamot · Lavender · Pear · Cinnamon · Vanilla',
+        scentFamily: 'Warm Spice'
       },
       {
         id: 'vanguard',
@@ -1340,11 +1768,11 @@
         price: 150,
         volume: '100 mL',
         concentration: 'Extrait de Parfum',
-        scentFamily: 'Citrus Amber',
         image: 'IMG-20261007-WA0050.jpg',
         inspiration: 'Inspired by Erba Pura · Xerjoff',
         description: 'A vibrant and luxurious scent blending fresh Mediterranean citrus fruits with warm amber and musk.',
-        notes: 'Orange · Lemon · Bergamot · Fruit Basket · White Musk'
+        notes: 'Orange · Lemon · Bergamot · Fruit Basket · White Musk',
+        scentFamily: 'Citrus Amber'
       },
       {
         id: 'eclipsed',
@@ -1352,11 +1780,11 @@
         price: 150,
         volume: '100 mL',
         concentration: 'Extrait de Parfum',
-        scentFamily: 'Luminous Floral',
         image: 'IMG-20261007-WA0051.jpg',
         inspiration: "Inspired by J'adore · Dior",
         description: 'An iconic, luminous floral bouquet celebrating absolute femininity and elegance.',
-        notes: 'Ylang-Ylang · Damask Rose · Grasse Jasmine · Pear · Melon'
+        notes: 'Ylang-Ylang · Damask Rose · Grasse Jasmine · Pear · Melon',
+        scentFamily: 'Luminous Floral'
       }
     ];
 
@@ -1364,257 +1792,156 @@
       id: 'bundle-3-luxury-perfumes-offer',
       name: 'Bundle: 3 Luxury Perfumes Offer',
       price: 330,
-      image: 'WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg'
+      volume: '3 × 100 mL',
+      concentration: 'Extrait de Parfum Trio',
+      image: 'WhatsApp Image 2026-10-07 at 5.11.07 PM.jpeg',
+      inspiration: 'Drake · Vanguard · Eclipsed Complete Set',
+      description: 'Experience all three signature Zahrat Al-Oud 100 mL Extrait de Parfum editions—Drake, Vanguard, and Eclipsed—curated at our limited bundle price of AED 330.',
+      notes: 'Warm Spice · Mediterranean Citrus Amber · Luminous Floral',
+      scentFamily: 'Bundle'
     };
 
+    const ALL_ITEMS = [...PRODUCTS, BUNDLE];
+    let cart = [];
     let currentFilter = 'All';
+    let modalProduct = null;
     let modalQty = 1;
-    let trioQty = 1;
-    let cartStep = 'bag';
+    let offerQty = 1;
+    let drawerStep = 'bag'; // 'bag' | 'checkout' | 'confirmed'
     let paymentMethod = 'Cash on delivery';
     let confirmedOrder = null;
     let toastTimer = null;
-    let cart = [];
 
-    try {
-      cart = JSON.parse(localStorage.getItem('zahrataloud_cart')) || [];
-    } catch (e) {
-      cart = [];
+    function loadCart() {
+      try {
+        const raw = localStorage.getItem(CART_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) cart = parsed;
+        }
+      } catch (e) {}
+      updateBagCount();
     }
 
     function saveCart() {
-      try { localStorage.setItem('zahrataloud_cart', JSON.stringify(cart)); } catch (e) {}
-      updateNavCount();
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      } catch (e) {}
+      updateBagCount();
     }
 
-    function findItemDef(id) {
-      if (id === BUNDLE.id) return BUNDLE;
-      return PRODUCTS.find(p => p.id === id);
-    }
-
-    function updateNavCount() {
+    function updateBagCount() {
       const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      document.getElementById('nav-bag-count').textContent = count;
+      document.getElementById('bagCount').textContent = count;
     }
 
-    function renderProducts() {
-      const grid = document.getElementById('product-grid');
-      const list = currentFilter === 'All'
+    function getDeliveryFee() {
+      if (cart.length === 0) return 0;
+      const hasTrioBundle = cart.some(item => item.id === BUNDLE.id);
+      return hasTrioBundle ? 0 : DELIVERY_FEE;
+    }
+
+    function renderProductGrid() {
+      const grid = document.getElementById('productGrid');
+      const visible = currentFilter === 'All'
         ? PRODUCTS
         : PRODUCTS.filter(p => p.scentFamily === currentFilter);
 
-      grid.innerHTML = list.map(p => `
+      grid.innerHTML = visible.map(p => `
         <article class="product-card">
           <div>
-            <button type="button" class="product-img-btn" onclick="openDetail('${p.id}')">
-              <img src="${p.image}" alt="${p.name} Perfume Bottle" loading="lazy" decoding="async" />
+            <button type="button" class="product-img-btn" onclick="openProductModal('${p.id}')">
+              <img src="${p.image}" alt="${p.name} Extrait de Parfum bottle" loading="lazy" decoding="async" />
             </button>
             <div class="product-meta">
-              <p class="product-kicker">${p.scentFamily} · ${p.volume}</p>
-              <div class="product-title-row">
-                <button type="button" class="product-title-btn" onclick="openDetail('${p.id}')">${p.name}</button>
-                <span class="product-price tabular">AED ${p.price.toFixed(2)}</span>
+              <p class="product-scent">${p.scentFamily} · ${p.volume}</p>
+              <div class="product-header">
+                <button type="button" class="product-name-btn" onclick="openProductModal('${p.id}')">${p.name}</button>
+                <span class="product-price tabular-nums">AED ${p.price.toFixed(2)}</span>
               </div>
-              <p class="product-insp">${p.inspiration}</p>
+              <p class="product-inspiration">${p.inspiration}</p>
               <p class="product-notes">${p.notes}</p>
             </div>
           </div>
-          <div class="card-actions">
-            <button type="button" class="btn-outline" onclick="openDetail('${p.id}')">View Notes</button>
-            <button type="button" class="btn-add" id="btn-${p.id}" onclick="addToCart('${p.id}', 1, this)">Add to Bag</button>
+          <div class="product-actions">
+            <button type="button" class="btn-outline" onclick="openProductModal('${p.id}')">View Notes</button>
+            <button type="button" id="addBtn-${p.id}" class="btn-primary" onclick="addProductQuick('${p.id}')">Add to Bag</button>
           </div>
         </article>
       `).join('');
     }
 
-    function renderTrioBottles() {
-      document.getElementById('trio-bottles-grid').innerHTML = PRODUCTS.map(p => `
+    function renderOfferIncludedGrid() {
+      const grid = document.getElementById('offerIncludedGrid');
+      grid.innerHTML = PRODUCTS.map(p => `
         <article class="product-card">
           <div>
-            <button type="button" class="product-img-btn" onclick="openDetail('${p.id}')">
-              <img src="${p.image}" alt="${p.name} Bottle" loading="lazy" decoding="async" />
-            </button>
+            <div class="product-img-btn" style="cursor:default;">
+              <img src="${p.image}" alt="${p.name} 100 mL bottle" loading="lazy" decoding="async" />
+            </div>
             <div class="product-meta">
-              <p class="product-kicker">${p.scentFamily} · ${p.volume}</p>
-              <div class="product-title-row">
-                <button type="button" class="product-title-btn" onclick="openDetail('${p.id}')">${p.name}</button>
-              </div>
-              <p class="product-insp">${p.inspiration}</p>
-              <p class="product-notes"><strong>Notes:</strong> ${p.notes}</p>
+              <p class="product-scent">${p.scentFamily} · ${p.volume}</p>
+              <h3 style="font-family:var(--font-display);font-size:22px;font-weight:400;margin-bottom:6px;">${p.name}</h3>
+              <p class="product-inspiration">${p.inspiration}</p>
+              <p style="font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:8px;">${p.description}</p>
+              <p class="product-notes"><strong style="color:var(--ink);">Notes:</strong> ${p.notes}</p>
             </div>
           </div>
-          <div class="card-actions">
-            <button type="button" class="btn-outline" style="width:100%;" onclick="openDetail('${p.id}')">View ${p.name} Details</button>
+          <div class="product-actions">
+            <button type="button" class="btn-outline" style="width:100%;" onclick="closeTrioOfferPage(); openProductModal('${p.id}');">View ${p.name} Individually</button>
           </div>
         </article>
       `).join('');
     }
 
-    function filterProducts(family, btn) {
-      currentFilter = family;
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      renderProducts();
+    function filterProducts(scent, btn) {
+      currentFilter = scent;
+      document.querySelectorAll('.filter-tab').forEach(el => el.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderProductGrid();
     }
 
-    /* History-aware navigation so phone Back button stays inside site */
-    function pushViewState(paramsObj, hashVal) {
-      try {
-        const url = new URL(window.location.href);
-        url.searchParams.delete('offer');
-        url.searchParams.delete('product');
-        Object.keys(paramsObj || {}).forEach(k => url.searchParams.set(k, paramsObj[k]));
-        url.hash = hashVal || '';
-        window.history.pushState({ zahrat: true }, '', url.toString());
-      } catch (e) {}
-    }
-
-    function syncViewsFromUrl() {
-      try {
-        const url = new URL(window.location.href);
-        const offer = url.searchParams.get('offer');
-        const productId = url.searchParams.get('product');
-        const hash = url.hash;
-
-        if (offer === 'trio' || hash === '#trio-offer-page') {
-          document.getElementById('home-view').classList.add('hidden');
-          document.getElementById('trio-page-view').classList.remove('hidden');
-        } else {
-          document.getElementById('trio-page-view').classList.add('hidden');
-          document.getElementById('home-view').classList.remove('hidden');
-        }
-
-        if (productId) {
-          populateAndShowDetail(productId);
-        } else {
-          document.getElementById('detail-modal').classList.remove('open');
-        }
-
-        if (hash === '#bag') {
-          renderCart();
-          document.getElementById('cart-overlay').classList.add('open');
-        } else {
-          document.getElementById('cart-overlay').classList.remove('open');
-        }
-      } catch (e) {}
-    }
-
-    window.addEventListener('popstate', syncViewsFromUrl);
-
-    function navigateHome(sectionId, e) {
-      if (e) e.preventDefault();
-      document.getElementById('mobile-nav').classList.remove('open');
-      document.getElementById('trio-page-view').classList.add('hidden');
-      document.getElementById('home-view').classList.remove('hidden');
-      pushViewState({}, '');
-      setTimeout(() => {
-        const el = document.getElementById(sectionId || 'top');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 30);
-    }
-
-    function openTrioPage(e) {
-      if (e) e.preventDefault();
-      document.getElementById('mobile-nav').classList.remove('open');
-      document.getElementById('detail-modal').classList.remove('open');
-      document.getElementById('cart-overlay').classList.remove('open');
-      document.getElementById('home-view').classList.add('hidden');
-      document.getElementById('trio-page-view').classList.remove('hidden');
-      pushViewState({ offer: 'trio' }, '');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function closeTrioPage() {
-      document.getElementById('trio-page-view').classList.add('hidden');
-      document.getElementById('home-view').classList.remove('hidden');
-      pushViewState({}, '');
-    }
-
-    function changeTrioQty(delta) {
-      trioQty = Math.min(10, Math.max(1, trioQty + delta));
-      document.getElementById('trio-qty').textContent = trioQty;
-      document.getElementById('trio-add-btn').textContent = `Add Trio Bundle — AED ${(BUNDLE.price * trioQty).toFixed(2)}`;
-    }
-
-    function addTrioFromPage() {
-      addToCart(BUNDLE.id, trioQty);
-    }
-
-    function copyTrioLink() {
-      try {
-        const url = new URL(window.location.href);
-        url.searchParams.delete('product');
-        url.searchParams.set('offer', 'trio');
-        url.hash = '';
-        navigator.clipboard.writeText(url.toString()).then(() => {
-          const btn = document.getElementById('copy-offer-btn');
-          btn.textContent = 'Offer Link Copied';
-          setTimeout(() => { btn.textContent = 'Copy Offer Link'; }, 2200);
-        });
-      } catch (e) {}
-    }
-
-    function populateAndShowDetail(id) {
-      const p = PRODUCTS.find(x => x.id === id);
-      if (!p) return;
-      modalQty = 1;
-      document.getElementById('m-img').src = p.image;
-      document.getElementById('m-img').alt = p.name;
-      document.getElementById('m-meta').textContent = `${p.concentration} · ${p.volume}`;
-      document.getElementById('m-title').textContent = p.name;
-      document.getElementById('m-price').textContent = `AED ${p.price.toFixed(2)}`;
-      document.getElementById('m-insp').textContent = p.inspiration;
-      document.getElementById('m-desc').textContent = p.description;
-      document.getElementById('m-notes').textContent = p.notes;
-      document.getElementById('m-qty').textContent = '1';
-      document.getElementById('m-add-btn').onclick = () => {
-        addToCart(p.id, modalQty);
-        closeDetail();
-      };
-      document.getElementById('detail-modal').classList.add('open');
-    }
-
-    function openDetail(id) {
-      populateAndShowDetail(id);
-      pushViewState({ product: id }, '');
-    }
-
-    function changeModalQty(delta) {
-      modalQty = Math.min(10, Math.max(1, modalQty + delta));
-      document.getElementById('m-qty').textContent = modalQty;
-    }
-
-    function closeDetail() {
-      document.getElementById('detail-modal').classList.remove('open');
-      const isTrio = !document.getElementById('trio-page-view').classList.contains('hidden');
-      pushViewState(isTrio ? { offer: 'trio' } : {}, '');
-    }
-
-    function addToCart(id, qty, btnEl) {
-      const def = findItemDef(id);
-      if (!def) return;
-      const existing = cart.find(c => c.id === id);
+    function addToCart(productId, qty) {
+      const item = ALL_ITEMS.find(p => p.id === productId);
+      if (!item) return;
+      const existing = cart.find(entry => entry.id === productId);
       if (existing) {
         existing.quantity += qty;
       } else {
-        cart.push({ id: def.id, name: def.name, price: def.price, image: def.image, quantity: qty });
+        cart.push({ id: item.id, name: item.name, price: item.price, image: item.image, quantity: qty });
       }
       saveCart();
-      if (btnEl) {
-        btnEl.textContent = 'Added to Bag';
-        btnEl.classList.add('added');
+      showToast(`Added ${qty} × ${item.name} to your bag`);
+    }
+
+    function addProductQuick(productId) {
+      addToCart(productId, 1);
+      const btn = document.getElementById(`addBtn-${productId}`);
+      if (btn) {
+        btn.textContent = 'Added to Bag';
+        btn.classList.add('added');
         setTimeout(() => {
-          btnEl.textContent = 'Add to Bag';
-          btnEl.classList.remove('added');
+          btn.textContent = 'Add to Bag';
+          btn.classList.remove('added');
         }, 1400);
       }
-      showToast(`Added ${qty} × ${def.name} to your bag`);
+    }
+
+    function addBundleFromHome() {
+      addToCart(BUNDLE.id, 1);
+      const btn = document.getElementById('homeBundleAddBtn');
+      btn.textContent = 'Bundle Added';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = 'Add Trio — AED 330.00';
+        btn.classList.remove('added');
+      }, 1400);
     }
 
     function showToast(msg) {
-      const t = document.getElementById('toast');
-      document.getElementById('toast-msg').textContent = msg;
-      t.classList.add('show');
+      const toast = document.getElementById('toast');
+      document.getElementById('toastText').textContent = msg;
+      toast.classList.add('show');
       clearTimeout(toastTimer);
       toastTimer = setTimeout(hideToast, 3200);
     }
@@ -1623,218 +1950,429 @@
       document.getElementById('toast').classList.remove('show');
     }
 
-    function openCart() {
-      hideToast();
-      if (cartStep === 'confirmed' && !confirmedOrder) cartStep = 'bag';
-      renderCart();
-      document.getElementById('cart-overlay').classList.add('open');
-      const isTrio = !document.getElementById('trio-page-view').classList.contains('hidden');
-      pushViewState(isTrio ? { offer: 'trio' } : {}, 'bag');
+    function dismissAnnouncement() {
+      document.getElementById('announcementBar').style.display = 'none';
     }
 
-    function closeCart() {
-      document.getElementById('cart-overlay').classList.remove('open');
-      if (cartStep === 'confirmed') {
-        cartStep = 'bag';
+    function toggleMobileMenu(force) {
+      const menu = document.getElementById('mobileMenu');
+      if (typeof force === 'boolean') {
+        menu.classList.toggle('open', force);
+      } else {
+        menu.classList.toggle('open');
+      }
+    }
+
+    function goHome(e) {
+      if (e) e.preventDefault();
+      if (document.getElementById('trioOfferPage').classList.contains('active')) {
+        closeTrioOfferPage();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateToSection(id, e) {
+      if (e) e.preventDefault();
+      if (document.getElementById('trioOfferPage').classList.contains('active')) {
+        closeTrioOfferPage();
+        setTimeout(() => {
+          const target = document.getElementById(id);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+        return;
+      }
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* Dedicated Trio Offer Page & History Routing */
+    function openTrioOfferPage(e) {
+      if (e) e.preventDefault();
+      closeProductModal(false);
+      closeCartDrawer(false);
+      document.getElementById('storefrontView').classList.add('hidden');
+      document.getElementById('trioOfferPage').classList.add('active');
+      offerQty = 1;
+      updateOfferQtyUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('product');
+        url.searchParams.set('offer', 'trio');
+        url.hash = '';
+        history.pushState({ view: 'trio' }, '', url.toString());
+      } catch (err) {}
+    }
+
+    function closeTrioOfferPage(pushHistory = true) {
+      document.getElementById('trioOfferPage').classList.remove('active');
+      document.getElementById('storefrontView').classList.remove('hidden');
+      if (pushHistory) {
+        try {
+          const url = new URL(window.location.href);
+          url.searchParams.delete('offer');
+          url.hash = '';
+          history.pushState({ view: 'home' }, '', url.toString());
+        } catch (err) {}
+      }
+    }
+
+    function changeOfferQty(delta) {
+      offerQty = Math.max(1, Math.min(10, offerQty + delta));
+      updateOfferQtyUI();
+    }
+
+    function updateOfferQtyUI() {
+      document.getElementById('offerQty').textContent = offerQty;
+      document.getElementById('offerAddBtn').textContent =
+        `Add Trio Bundle · AED ${(BUNDLE.price * offerQty).toFixed(2)}`;
+    }
+
+    function addOfferBundleToCart() {
+      addToCart(BUNDLE.id, offerQty);
+    }
+
+    function copyOfferLink() {
+      const btn = document.getElementById('copyOfferLinkBtn');
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set('offer', 'trio');
+        url.hash = '';
+        navigator.clipboard.writeText(url.toString());
+        btn.textContent = 'Link Copied';
+        setTimeout(() => { btn.textContent = 'Copy Link'; }, 2000);
+      } catch (err) {}
+    }
+
+    /* Product Detail Modal */
+    function openProductModal(productId, pushHistory = true) {
+      const p = PRODUCTS.find(item => item.id === productId);
+      if (!p) return;
+      modalProduct = p;
+      modalQty = 1;
+      document.getElementById('modalImg').src = p.image;
+      document.getElementById('modalImg').alt = `${p.name} bottle`;
+      document.getElementById('modalEyebrow').textContent = `${p.concentration} · ${p.volume}`;
+      document.getElementById('modalTitle').textContent = p.name;
+      document.getElementById('modalPrice').textContent = `AED ${p.price.toFixed(2)}`;
+      document.getElementById('modalInspiration').textContent = p.inspiration;
+      document.getElementById('modalDesc').textContent = p.description;
+      document.getElementById('modalNotes').textContent = p.notes;
+      document.getElementById('modalScent').textContent = p.scentFamily;
+      updateModalQtyUI();
+      document.getElementById('productModal').classList.add('open');
+
+      if (pushHistory) {
+        try {
+          const url = new URL(window.location.href);
+          url.searchParams.set('product', p.id);
+          history.pushState({ view: 'product', id: p.id }, '', url.toString());
+        } catch (err) {}
+      }
+    }
+
+    function closeProductModal(pushHistory = true) {
+      document.getElementById('productModal').classList.remove('open');
+      modalProduct = null;
+      if (pushHistory) {
+        try {
+          const url = new URL(window.location.href);
+          if (url.searchParams.has('product')) {
+            url.searchParams.delete('product');
+            history.pushState({ view: 'home' }, '', url.toString());
+          }
+        } catch (err) {}
+      }
+    }
+
+    function changeModalQty(delta) {
+      modalQty = Math.max(1, Math.min(10, modalQty + delta));
+      updateModalQtyUI();
+    }
+
+    function updateModalQtyUI() {
+      if (!modalProduct) return;
+      document.getElementById('modalQty').textContent = modalQty;
+      document.getElementById('modalAddBtn').textContent =
+        `Add to Bag · AED ${(modalProduct.price * modalQty).toFixed(2)}`;
+    }
+
+    function addModalProductToCart() {
+      if (!modalProduct) return;
+      addToCart(modalProduct.id, modalQty);
+      closeProductModal();
+    }
+
+    /* Cart Drawer & Checkout */
+    function openCartDrawer(pushHistory = true) {
+      hideToast();
+      renderCartDrawer();
+      document.getElementById('cartDrawer').classList.add('open');
+      if (pushHistory) {
+        try {
+          const url = new URL(window.location.href);
+          url.hash = 'bag';
+          history.pushState({ view: 'bag' }, '', url.toString());
+        } catch (err) {}
+      }
+    }
+
+    function closeCartDrawer(pushHistory = true) {
+      document.getElementById('cartDrawer').classList.remove('open');
+      if (drawerStep === 'confirmed') {
+        drawerStep = 'bag';
         confirmedOrder = null;
       }
-      const isTrio = !document.getElementById('trio-page-view').classList.contains('hidden');
-      pushViewState(isTrio ? { offer: 'trio' } : {}, '');
+      if (pushHistory) {
+        try {
+          const url = new URL(window.location.href);
+          if (url.hash === '#bag') {
+            url.hash = '';
+            history.pushState({ view: 'home' }, '', url.toString());
+          }
+        } catch (err) {}
+      }
     }
 
-    function updateCartQty(id, delta) {
-      const item = cart.find(c => c.id === id);
-      if (!item) return;
-      item.quantity += delta;
-      if (item.quantity <= 0) {
-        cart = cart.filter(c => c.id !== id);
+    function updateCartItemQty(id, delta) {
+      const entry = cart.find(i => i.id === id);
+      if (!entry) return;
+      entry.quantity += delta;
+      if (entry.quantity <= 0) {
+        cart = cart.filter(i => i.id !== id);
       }
       saveCart();
-      renderCart();
+      renderCartDrawer();
     }
 
     function removeCartItem(id) {
-      cart = cart.filter(c => c.id !== id);
+      cart = cart.filter(i => i.id !== id);
       saveCart();
-      renderCart();
+      renderCartDrawer();
+    }
+
+    function setDrawerStep(step) {
+      drawerStep = step;
+      renderCartDrawer();
     }
 
     function setPayMethod(method) {
       paymentMethod = method;
-      renderCart();
+      renderCartDrawer();
     }
 
-    function renderCart() {
-      const titleEl = document.getElementById('cart-drawer-title');
-      const bodyEl = document.getElementById('cart-body');
-      const footerEl = document.getElementById('cart-footer');
-      const count = cart.reduce((s, i) => s + i.quantity, 0);
-      const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-      const total = subtotal + (cart.length ? DELIVERY_FEE : 0);
+    function submitOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('ordName').value.trim();
+      const phone = document.getElementById('ordPhone').value.trim();
+      const email = document.getElementById('ordEmail').value.trim();
+      const emirate = document.getElementById('ordEmirate').value;
+      const address = document.getElementById('ordAddress').value.trim();
 
-      if (cartStep === 'confirmed' && confirmedOrder) {
+      if (!name || !phone || !email || !emirate || !address) return;
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      const deliveryFee = getDeliveryFee();
+      const total = subtotal + deliveryFee;
+      const itemCount = cart.reduce((s, i) => s + i.quantity, 0);
+      const orderId = 'ZAO-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+      if (paymentMethod === 'Online Payment') {
+        cart = [];
+        saveCart();
+        window.location.assign(`https://pay.ziina.com/Abdala114?amount=${total}&reference=${orderId}`);
+        return;
+      }
+
+      confirmedOrder = { orderId, name, emirate, address, paymentMethod, deliveryFee, total, itemCount };
+      cart = [];
+      saveCart();
+      drawerStep = 'confirmed';
+      renderCartDrawer();
+    }
+
+    function renderCartDrawer() {
+      const titleEl = document.getElementById('drawerTitle');
+      const bodyEl = document.getElementById('drawerBody');
+      const footerEl = document.getElementById('drawerFooter');
+      const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+
+      if (drawerStep === 'confirmed' && confirmedOrder) {
         titleEl.textContent = 'Order Confirmed';
-        footerEl.innerHTML = '';
+        footerEl.classList.add('hidden');
         bodyEl.innerHTML = `
-          <p style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-dark);">
-            Order #${confirmedOrder.id} Confirmed — Preparing Shipment
-          </p>
-          <h3 style="font-family:var(--serif); font-size:26px; font-weight:400; margin:12px 0 8px;">
-            Thank you, ${confirmedOrder.name}.
-          </h3>
-          <p style="font-size:14px; color:var(--muted); line-height:1.6;">
-            Your Zahrat Al-Oud order has been registered for UAE courier dispatch.
-          </p>
-          <div style="border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; margin:20px 0; font-size:14px;">
-            <div class="summary-row"><span>Order Reference</span><strong class="tabular">${confirmedOrder.id}</strong></div>
-            <div class="summary-row"><span>Emirate</span><span>${confirmedOrder.emirate}</span></div>
-            <div class="summary-row"><span>Payment</span><span>${confirmedOrder.payment}</span></div>
-            <div class="summary-row total"><span>Total (incl. AED 20 Delivery)</span><span class="tabular">AED ${confirmedOrder.total.toFixed(2)}</span></div>
+          <div style="padding:8px 0;">
+            <p class="eyebrow" style="margin-bottom:10px;">Order #${confirmedOrder.orderId} Confirmed</p>
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:400;margin-bottom:8px;">Thank you, ${confirmedOrder.name}.</h3>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Your Zahrat Al-Oud order has been registered for UAE courier dispatch.</p>
+            <div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;font-size:13px;">
+              <div class="summary-row"><span>Order Reference</span><strong style="color:var(--ink);">${confirmedOrder.orderId}</strong></div>
+              <div class="summary-row"><span>Items</span><span>${confirmedOrder.itemCount}</span></div>
+              <div class="summary-row"><span>Emirate</span><span>${confirmedOrder.emirate}</span></div>
+              <div class="summary-row"><span>Payment</span><span>${confirmedOrder.paymentMethod}</span></div>
+              <div class="summary-row"><span>UAE Delivery</span><span>${confirmedOrder.deliveryFee === 0 ? 'Free (AED 330 Trio)' : 'AED ' + confirmedOrder.deliveryFee.toFixed(2)}</span></div>
+              <div class="summary-total" style="margin-bottom:0;"><span>Total</span><span class="tabular-nums">AED ${confirmedOrder.total.toFixed(2)}</span></div>
+            </div>
+            <button type="button" class="btn-primary" style="width:100%;margin-top:20px;" onclick="closeCartDrawer()">Back to Collection</button>
           </div>
-          <button type="button" class="btn-primary" style="width:100%;" onclick="closeCart()">Back to Collection</button>
         `;
         return;
       }
 
       if (cart.length === 0) {
         titleEl.textContent = 'Your Bag (0)';
-        footerEl.innerHTML = '';
+        footerEl.classList.add('hidden');
         bodyEl.innerHTML = `
-          <div style="text-align:center; padding:60px 16px;">
-            <p style="font-family:var(--serif); font-size:22px; margin:0 0 8px;">Your bag is empty.</p>
-            <p style="font-size:14px; color:var(--muted); margin:0 0 20px;">
-              Discover Drake, Vanguard, Eclipsed, or our 3-perfume bundle for AED 330.
-            </p>
-            <button type="button" class="btn-primary" onclick="closeCart()">Browse Perfumes</button>
+          <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 12px;gap:12px;">
+            <p style="font-family:var(--font-display);font-size:22px;">Your bag is empty.</p>
+            <p style="font-size:13px;color:var(--muted);max-width:28ch;">Discover Drake, Vanguard, Eclipsed, or our 3-perfume bundle for AED 330 with free UAE delivery.</p>
+            <button type="button" class="btn-primary" onclick="closeCartDrawer()">Browse Perfumes</button>
           </div>
         `;
         return;
       }
 
-      if (cartStep === 'bag') {
-        titleEl.textContent = `Your Bag (${count})`;
+      const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      const deliveryFee = getDeliveryFee();
+      const grandTotal = subtotal + deliveryFee;
+
+      if (drawerStep === 'bag') {
+        titleEl.textContent = `Your Bag (${totalItems})`;
         bodyEl.innerHTML = cart.map(item => `
           <div class="cart-item">
-            <div class="cart-item-thumb"><img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" /></div>
+            <div class="cart-item-img"><img src="${item.image}" alt="${item.name}" /></div>
             <div class="cart-item-info">
-              <div class="cart-item-top">
+              <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;">
                 <div>
-                  <h4>${item.name}</h4>
-                  <span style="font-size:12px; color:var(--muted);" class="tabular">AED ${item.price.toFixed(2)}</span>
+                  <strong style="font-size:14px;display:block;">${item.name}</strong>
+                  <span class="tabular-nums" style="font-size:12px;color:var(--muted);">AED ${item.price.toFixed(2)}</span>
                 </div>
-                <button type="button" class="remove-btn" onclick="removeCartItem('${item.id}')">Remove</button>
+                <button type="button" aria-label="Remove ${item.name}" onclick="removeCartItem('${item.id}')" style="background:transparent;border:0;color:var(--subtle);cursor:pointer;font-size:16px;">&times;</button>
               </div>
-              <div class="cart-item-bottom">
-                <div class="qty-stepper" style="height:34px;">
-                  <button type="button" style="width:32px; height:32px;" onclick="updateCartQty('${item.id}', -1)">-</button>
-                  <span class="tabular" style="width:28px; font-size:12px;">${item.quantity}</span>
-                  <button type="button" style="width:32px; height:32px;" onclick="updateCartQty('${item.id}', 1)">+</button>
+              <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                <div class="qty-stepper" style="height:32px;">
+                  <button type="button" style="width:32px;height:32px;font-size:14px;" onclick="updateCartItemQty('${item.id}', -1)">&minus;</button>
+                  <span class="tabular-nums" style="font-size:12px;width:28px;">${item.quantity}</span>
+                  <button type="button" style="width:32px;height:32px;font-size:14px;" onclick="updateCartItemQty('${item.id}', 1)">+</button>
                 </div>
-                <strong class="tabular" style="font-size:14px;">AED ${(item.price * item.quantity).toFixed(2)}</strong>
+                <strong class="tabular-nums" style="font-size:13px;">AED ${(item.price * item.quantity).toFixed(2)}</strong>
               </div>
             </div>
           </div>
         `).join('');
-
-        footerEl.innerHTML = `
-          <div class="summary-row"><span>Subtotal</span><span class="tabular">AED ${subtotal.toFixed(2)}</span></div>
-          <div class="summary-row"><span>UAE Delivery</span><span class="tabular">AED ${DELIVERY_FEE.toFixed(2)}</span></div>
-          <div class="summary-row total"><span>Total</span><span class="tabular">AED ${total.toFixed(2)}</span></div>
-          <button type="button" class="btn-primary" style="width:100%; margin-top:14px;" onclick="cartStep='checkout'; renderCart();">
-            Continue to Delivery Details
-          </button>
-        `;
-        return;
-      }
-
-      titleEl.textContent = 'Delivery Details';
-      bodyEl.innerHTML = `
-        <form id="checkout-form" onsubmit="submitOrder(event)">
-          <div class="form-group"><label for="o-name">Full Name</label><input id="o-name" type="text" required /></div>
-          <div class="form-group"><label for="o-phone">Mobile Number</label><input id="o-phone" type="tel" required /></div>
-          <div class="form-group"><label for="o-email">Email Address</label><input id="o-email" type="email" required /></div>
-          <div class="form-group">
-            <label for="o-emirate">Emirate</label>
-            <select id="o-emirate" required>
-              <option value="">Select emirate</option>
-              <option value="Dubai">Dubai</option>
-              <option value="Sharjah">Sharjah</option>
-              <option value="Abu Dhabi">Abu Dhabi</option>
-              <option value="Ajman">Ajman</option>
-              <option value="Ras Al Khaimah">Ras Al Khaimah</option>
-              <option value="Fujairah">Fujairah</option>
-              <option value="Umm Al Quwain">Umm Al Quwain</option>
-            </select>
-          </div>
-          <div class="form-group"><label for="o-address">Delivery Address</label><textarea id="o-address" rows="3" required></textarea></div>
-          <div class="form-group">
-            <label>Payment Method</label>
-            <div class="payment-grid">
-              <button type="button" class="pay-choice ${paymentMethod === 'Cash on delivery' ? 'active' : ''}" onclick="setPayMethod('Cash on delivery')">Cash on delivery</button>
-              <button type="button" class="pay-choice ${paymentMethod === 'Online Payment' ? 'active' : ''}" onclick="setPayMethod('Online Payment')">Online Payment</button>
+      } else {
+        titleEl.textContent = 'Delivery Details';
+        bodyEl.innerHTML = `
+          <form id="checkoutForm" onsubmit="submitOrder(event)">
+            <div class="form-group">
+              <label class="form-label" for="ordName">Full Name</label>
+              <input id="ordName" class="form-control" type="text" required />
             </div>
-          </div>
-        </form>
-      `;
-
-      footerEl.innerHTML = `
-        <div class="summary-row total" style="border-top:none; padding-top:0; margin-top:0; margin-bottom:14px;">
-          <span>Total (incl. AED 20 Delivery)</span>
-          <span class="tabular">AED ${total.toFixed(2)}</span>
-        </div>
-        <div style="display:flex; gap:10px;">
-          <button type="button" class="btn-outline" onclick="cartStep='bag'; renderCart();">Back</button>
-          <button type="submit" form="checkout-form" class="btn-primary" style="flex:1;">Complete Order · AED ${total.toFixed(2)}</button>
-        </div>
-      `;
-    }
-
-    function submitOrder(e) {
-      e.preventDefault();
-      const name = document.getElementById('o-name').value.trim();
-      const emirate = document.getElementById('o-emirate').value;
-      const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-      const total = subtotal + DELIVERY_FEE;
-      const orderId = 'ZAO-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-
-      if (paymentMethod === 'Online Payment') {
-        cart = [];
-        saveCart();
-        window.location.href = `https://pay.ziina.com/Abdala114?amount=${total}&reference=${orderId}`;
-        return;
+            <div class="form-group">
+              <label class="form-label" for="ordPhone">Mobile Number</label>
+              <input id="ordPhone" class="form-control" type="tel" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ordEmail">Email Address</label>
+              <input id="ordEmail" class="form-control" type="email" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ordEmirate">Emirate</label>
+              <select id="ordEmirate" class="form-control" required>
+                <option value="">Select emirate</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Sharjah">Sharjah</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Ajman">Ajman</option>
+                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                <option value="Fujairah">Fujairah</option>
+                <option value="Umm Al Quwain">Umm Al Quwain</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ordAddress">Delivery Address</label>
+              <textarea id="ordAddress" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <span class="form-label">Payment Method</span>
+              <div class="pay-grid">
+                <button type="button" class="pay-option ${paymentMethod === 'Cash on delivery' ? 'active' : ''}" onclick="setPayMethod('Cash on delivery')">Cash on delivery</button>
+                <button type="button" class="pay-option ${paymentMethod === 'Online Payment' ? 'active' : ''}" onclick="setPayMethod('Online Payment')">Online Payment</button>
+              </div>
+            </div>
+          </form>
+        `;
       }
 
-      confirmedOrder = { id: orderId, name, emirate, payment: paymentMethod, total };
-      cart = [];
-      saveCart();
-      cartStep = 'confirmed';
-      renderCart();
-    }
-
-    function submitContact(e) {
-      e.preventDefault();
-      document.getElementById('contact-form-wrap').innerHTML = `
-        <div class="contact-sent-box">
-          <h3>Message Received</h3>
-          <p style="font-size:14px; color:var(--muted); margin:0 0 20px;">
-            Thank you for writing to Zahrat Al-Oud. Our team will respond shortly.
-          </p>
-          <button type="button" class="btn-primary" onclick="location.reload()">Done</button>
-        </div>
+      footerEl.classList.remove('hidden');
+      footerEl.innerHTML = `
+        <div class="summary-row"><span>Subtotal</span><span class="tabular-nums" style="color:var(--ink);">AED ${subtotal.toFixed(2)}</span></div>
+        <div class="summary-row"><span>UAE Delivery</span><span class="tabular-nums" style="color:var(--ink);">${deliveryFee === 0 ? 'Free (AED 330 Offer)' : 'AED ' + deliveryFee.toFixed(2)}</span></div>
+        ${deliveryFee > 0 ? '<p style="font-size:11px;color:var(--gold-dark);margin-bottom:4px;">Delivery is free with the AED 330 Trio Offer.</p>' : ''}
+        <div class="summary-total"><span>Total</span><span class="tabular-nums">AED ${grandTotal.toFixed(2)}</span></div>
+        ${drawerStep === 'bag'
+          ? '<button type="button" class="btn-primary" style="width:100%;" onclick="setDrawerStep(\'checkout\')">Continue to Delivery Details</button>'
+          : `<div style="display:flex;gap:10px;">
+               <button type="button" class="btn-outline" onclick="setDrawerStep('bag')">Back</button>
+               <button type="submit" form="checkoutForm" class="btn-primary" style="flex:1;">Complete Order · AED ${grandTotal.toFixed(2)}</button>
+             </div>`
+        }
       `;
     }
 
-    document.addEventListener('keydown', (e) => {
+    function submitContactForm(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').classList.add('hidden');
+      document.getElementById('contactSuccess').classList.add('active');
+      document.getElementById('contactForm').reset();
+    }
+
+    function resetContactForm() {
+      document.getElementById('contactSuccess').classList.remove('active');
+      document.getElementById('contactForm').classList.remove('hidden');
+    }
+
+    function syncFromUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const offer = params.get('offer');
+        const product = params.get('product');
+        const hash = window.location.hash;
+
+        if (hash === '#bag') {
+          openCartDrawer(false);
+        } else {
+          document.getElementById('cartDrawer').classList.remove('open');
+        }
+
+        if (offer === 'trio' || hash === '#trio-offer-page') {
+          document.getElementById('storefrontView').classList.add('hidden');
+          document.getElementById('trioOfferPage').classList.add('active');
+        } else {
+          document.getElementById('trioOfferPage').classList.remove('active');
+          document.getElementById('storefrontView').classList.remove('hidden');
+        }
+
+        if (product) {
+          openProductModal(product, false);
+        } else {
+          document.getElementById('productModal').classList.remove('open');
+        }
+      } catch (err) {}
+    }
+
+    window.addEventListener('popstate', syncFromUrl);
+    window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeDetail();
-        closeCart();
+        closeProductModal();
+        closeCartDrawer();
       }
     });
 
-    renderProducts();
-    renderTrioBottles();
-    updateNavCount();
-    syncViewsFromUrl();
+    loadCart();
+    renderProductGrid();
+    renderOfferIncludedGrid();
+    syncFromUrl();
   </script>
 </body>
 </html>
